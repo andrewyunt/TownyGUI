@@ -1,0 +1,30 @@
+name: TownyGUI
+main: com.andrewyunt.townygui.TownyGUI
+version: 0.10
+author: Andrew Yunt
+website: http://code.google.com/a/eclipselabs.org/p/towny/
+description: >
+    TownyGUI plugin which hooks into Towny.
+
+softdepend: [Towny]
+
+############################################################
+# +------------------------------------------------------+ #
+# |                 TownyGUI commands                    | #
+# +------------------------------------------------------+ #
+############################################################
+commands:
+  tgui:
+    description: Opens the interactive Towny GUI menu.
+    aliases: [townygui]
+    permission: towny.gui.open
+    
+############################################################
+# +------------------------------------------------------+ #
+# |                 TownyGUI permissions                 | #
+# +------------------------------------------------------+ #
+############################################################
+permissions:
+  towny.gui.open:
+    description: Allows you to open the Towny GUI menu.
+    default: true
