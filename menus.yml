@@ -1,0 +1,24 @@
+############################################################
+# +------------------------------------------------------+ #
+# |                 TownyGUI menus                       | #
+# +------------------------------------------------------+ #
+############################################################
+menus:
+  Main:
+    title: "&cMain Menu"
+    size: 20
+    material: DIRT
+    lore:
+    - "&bThe main menu"
+    icons:
+      Towny:
+        slot: 0
+  Towny:
+    title: "Towny"
+    size: 54
+    material: GLASS
+    lore:
+    - "Click to go to the Towny menu"
+    icons:
+      /towny map:
+        slot: 5
