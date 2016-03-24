@@ -10,7 +10,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.andrewyunt.townygui.configuration.CommandConfiguration;
 import com.andrewyunt.townygui.configuration.MenuConfiguration;
 import com.andrewyunt.townygui.listeners.InventoryListener;
-import com.andrewyunt.townygui.menu.Menu;
 import com.palmergames.bukkit.towny.TownyMessaging;
 
 public class TownyGUI extends JavaPlugin {

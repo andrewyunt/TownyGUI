@@ -1,4 +1,4 @@
-package com.andrewyunt.townygui.menu;
+package com.andrewyunt.townygui;
 
 import java.util.Set;
 
@@ -10,9 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import com.andrewyunt.townygui.TownyGUI;
-import com.andrewyunt.townygui.Utils;
 
 public class Menu {
 	
@@ -61,7 +58,7 @@ public class Menu {
 			
 			is.setItemMeta(meta);
 			
-			Bukkit.getServer().broadcastMessage(String.valueOf(TownyGUI.plugin.menuConfig.getConfig().getInt("menus." + menu + ".icons." + icon + ".slot")));
+			inv.setItem(TownyGUI.plugin.menuConfig.getConfig().getInt("menus." + menu + ".icons." + icon + ".slot"), is);
 		}
 		
 		player.openInventory(inv);

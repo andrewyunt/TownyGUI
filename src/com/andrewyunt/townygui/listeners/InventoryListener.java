@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.andrewyunt.townygui.menu.Menu;
+import com.andrewyunt.townygui.Menu;
 import com.gmail.filoghost.hiddenstring.HiddenStringUtils;
 
 public class InventoryListener implements Listener {
