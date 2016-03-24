@@ -3,6 +3,9 @@
 # |                 TownyGUI menus                       | #
 # +------------------------------------------------------+ #
 ############################################################
+
+# Warning - Do not rename or remove the main menu
+# TownyGUI will automatically open to the main menu
 menus:
   Main:
     title: "&cMain Menu"
@@ -12,7 +15,7 @@ menus:
     - "&bThe main menu"
     icons:
       Towny:
-        slot: 0
+        slot: 1
   Towny:
     title: "Towny"
     size: 54

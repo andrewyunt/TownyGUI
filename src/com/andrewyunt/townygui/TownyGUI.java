@@ -10,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.andrewyunt.townygui.configuration.CommandConfiguration;
 import com.andrewyunt.townygui.configuration.MenuConfiguration;
 import com.andrewyunt.townygui.listeners.InventoryListener;
+import com.andrewyunt.townygui.utilities.Utils;
 import com.palmergames.bukkit.towny.TownyMessaging;
 
 public class TownyGUI extends JavaPlugin {
@@ -41,8 +42,6 @@ public class TownyGUI extends JavaPlugin {
 			return;
 		}
 		
-		saveDefaultConfig();
-		
 		commandConfig.saveDefaultConfig();
 		menuConfig.saveDefaultConfig();
 	
@@ -59,7 +58,7 @@ public class TownyGUI extends JavaPlugin {
 					System.out.println("The user interface cannot be opened from the console.");
 					return true;
 				} else
-					new Menu((Player) sender, this.getConfig().getString("main_menu"));
+					new Menu((Player) sender, "Main");
 			else if(args.length > 0)
 				if(args[0].equals("reload")) {
 					reload();
@@ -80,8 +79,6 @@ public class TownyGUI extends JavaPlugin {
 	}
 	
 	public void reload() {
-		
-		reloadConfig();
 		
 		menuConfig.reloadConfig();
 		commandConfig.reloadConfig();

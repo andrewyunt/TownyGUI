@@ -1,4 +1,4 @@
-package com.andrewyunt.townygui;
+package com.andrewyunt.townygui.utilities;
 
 import java.util.ArrayList;
 import java.util.List;

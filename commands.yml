@@ -9,3 +9,11 @@ commands:
     material: MAP
     lore:
     - ""
+  /town new:
+    title: "New Town"
+    material: WOOL
+    arguments:
+      <NAME>:
+        prompt: "What would you like to name your town?"
+    lore:
+    - "make a new town"
