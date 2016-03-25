@@ -57,7 +57,8 @@ public class Menu {
 			try {
 				is = new ItemStack(Material.getMaterial(config.getString(type + "." + icon + ".material")));
 			} catch(NullPointerException e) {
-				TownyMessaging.sendErrorMsg(player, "The material for the icon " + icon + " is invalid. " + e);
+				TownyMessaging.sendErrorMsg(player, "The material for the icon " + icon + " is invalid. OR there is an error in the configuration.");
+				TownyMessaging.sendErrorMsg(player, e.getMessage());
 				TownyMessaging.sendErrorMsg(player, "Please report this error to your server administrator.");
 			}
 			
@@ -71,7 +72,7 @@ public class Menu {
 			try {
 				inv.setItem(TownyGUI.plugin.menuConfig.getConfig().getInt("menus." + menu + ".icons." + icon + ".slot") - 1, is);
 			} catch(ArrayIndexOutOfBoundsException e) {
-				TownyMessaging.sendErrorMsg(player, "Icon " + icon + " is configured in a slot outside of the menu. " + e);
+				TownyMessaging.sendErrorMsg(player, "Icon " + icon + " is configured in a slot outside of the menu. " + e.getMessage());
 				TownyMessaging.sendErrorMsg(player, "Please report this error to your server administrator.");
 			}
 		}
