@@ -24,7 +24,6 @@ menus:
         slot: 7
       Nation:
         slot: 9
-      
   Towny:
     title: "Towny Menu"
     size: 54
@@ -35,28 +34,28 @@ menus:
       /towny map:
         slot: 5
   Plot:
-    title: 'Plot Menu'
+    title: "Plot Menu"
     size: 54
     material: SIGN
     lore:
     - "Manage the plot you are currently standing on."
     icons: {}
   Resident:
-    title: 'Resident Menu'
+    title: "Resident Menu"
     size: 27
     material: SKULL_ITEM
     lore:
     - "Manage your Towny character."
     icons: {}
   Town:
-    title: 'Town Menu'
+    title: "Town Menu"
     size: 54
     material: BOOKSHELF
     lore:
     - "Manage your town."
     icons: {}
   Nation:
-    title: 'Nation Menu'
+    title: "Nation Menu"
     size: 36
     material: ARROW
     lore:
