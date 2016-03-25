@@ -56,7 +56,7 @@ public class CommandBuilder implements ConversationAbandonedListener {
     	
         public String getPromptText(ConversationContext context) {
         	
-        	String prompt = TownyGUI.plugin.commandConfig.getConfig().getString("commands." + baseCommand + ".arguments." + argumentList.get(conversationLength - 1) + ".prompt");
+        	String prompt = TownyGUI.plugin.commandConfig.getConfig().getString("commands." + baseCommand + ".arguments." + argumentList.get(conversationLength - 1));
         	
         	return ChatColor.translateAlternateColorCodes('&', prompt);
         }
@@ -67,6 +67,8 @@ public class CommandBuilder implements ConversationAbandonedListener {
 			conversationLength = conversationLength - 1;
 			
 			newCommand = newCommand + " " + input;
+			
+			Bukkit.getServer().broadcastMessage(newCommand);
 			
 			if(conversationLength > 0)
 				return new CommandPrompt();

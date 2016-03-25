@@ -43,6 +43,8 @@ public class Menu {
 		
 		for(String icon : icons) {
 			
+			ItemStack is = null;
+			
 			String type;
 			
 			if(icon.startsWith("/")) {
@@ -52,8 +54,13 @@ public class Menu {
 				config = TownyGUI.plugin.menuConfig.getConfig();
 				type = "menus";
 			}
-				
-			ItemStack is = new ItemStack(Material.getMaterial(config.getString(type + "." + icon + ".material")));
+			try {
+				is = new ItemStack(Material.getMaterial(config.getString(type + "." + icon + ".material")));
+			} catch(NullPointerException e) {
+				TownyMessaging.sendErrorMsg(player, "The material for the icon " + icon + " is invalid. " + e);
+				TownyMessaging.sendErrorMsg(player, "Please report this error to your server administrator.");
+			}
+			
 			ItemMeta meta = is.getItemMeta();
 			
 			meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', config.getString(type + "." + icon + ".title")));

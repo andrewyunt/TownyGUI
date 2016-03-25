@@ -10,9 +10,9 @@ menus:
   Main:
     title: "Main Menu"
     size: 9
-    material: DIRT
+    material: IRON_FENCE
     lore:
-    - "&bThe main menu"
+    - "&cReturn to the main menu."
     icons:
       Towny:
         slot: 1
@@ -26,20 +26,38 @@ menus:
         slot: 9
   Towny:
     title: "Towny Menu"
-    size: 54
+    size: 27
     material: GLASS
     lore:
-    - "Towny''s general functions are located here. "
+    - "Towny's general functions are located here. "
     icons:
       /towny map:
+        slot: 1
+      /towny prices:
+        slot: 3
+      /towny time:
         slot: 5
+      /towny top residents:
+        slot: 7
+      /towny top land:
+        slot: 9
+      /towny universe:
+        slot: 13
+      Towny_War:
+        slot: 15
+      Main:
+        slot: 27
   Plot:
     title: "Plot Menu"
     size: 54
     material: SIGN
     lore:
     - "Manage the plot you are currently standing on."
-    icons: {}
+    icons:
+      /plot claim:
+        slot: 1
+      /plot unclaim:
+        slot: 3
   Resident:
     title: "Resident Menu"
     size: 27
@@ -61,3 +79,16 @@ menus:
     lore:
     - "Manage your nation."
     icons: {}
+  Towny_War:
+    title: "Towny War Menu"
+    size: 9
+    material: IRON_SWORD
+    lore:
+    - "Commands related to Towny war."
+    icons:
+      /towny war stats:
+        slot: 3
+      /towny war scores:
+        slot: 5
+      /towny war hud:
+        slot: 7

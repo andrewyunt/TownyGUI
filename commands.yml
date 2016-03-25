@@ -4,16 +4,80 @@
 # +------------------------------------------------------+ #
 ############################################################
 commands:
+
+# Towny Menu commands
   /towny map:
     title: "Towny Map"
-    material: MAP
+    material: EMPTY_MAP
     lore:
-    - ""
+    - "Shows the Towny map."
+  /towny prices:
+    title: "Towny Prices"
+    material: GOLD_INGOT
+    lore:
+    - "Shows taxes/costs associated with running a town."
+  /towny time:
+    title: "Towny Time"
+    material: WATCH
+    lore:
+    - "Shows time until next new-day (tax/upkeep collection.)"
+  /towny top residents:
+    title: "Top Residents"
+    material: SKULL_ITEM
+    lore:
+    - "Shows top residents."
+    arguments:
+      <WHERE>: "&aWhich place do you want to get the top residents from? Possible options: {all/town/nation}"
+  /towny top land:
+    title: "Top Land Owners"
+    material: GRASS
+    lore:
+    - "Shows top land owners."
+    arguments:
+      <WHERE>: "&aWhich place do you want to get the top land owners from? Possible options: {all/town/nation}"
+  /towny universe:
+    title: "Towny Universe"
+    material: GRASS
+    lore:
+    - "Shows full Towny stats, resident/town/nation/world counts as well as townblocks claimed."
+  /towny war stats:
+    title: "Stats"
+    material: ARROW
+    lore: {}
+  /towny war scores:
+    title: "Scores"
+    material: ARROW
+    lore: {}
+  /towny war hud:
+    title: "Scores"
+    material: ARROW
+    lore:
+    - "Toggles the Towny war hud."
+
+# Plot Menu Commands
+  /plot claim:
+    title: "Claim Plot"
+    material: WOOD_AXE
+    lore:
+    - "Claims the plot you are currently standing on if it is for sale."
+  /plot claim auto:
+    title: "Automatically Claim Plots"
+    material: WOOD_AXE
+    lore:
+    - "Toggles automatic claiming of the plot you are currently standing on if it is for sale."
+  /plot unclaim:
+    title: "Unclaim Plot"
+    material: FLINT_AND_STEEL
+    lore:
+    - "Unclaim personally owned plots."
+    arguments:
+      <SHAPE>: "&aWhat shape do you want to unclaim plots in? Possible options: {circ/rect}"
+      <RADIUS>: "&aWhat radius do you want to unclaim plots in?"
+# Town Menu Commands
   /town new:
     title: "New Town"
-    material: WOOL
-    arguments:
-      <NAME>:
-        prompt: "What would you like to name your town?"
+    material: NAME_TAG
     lore:
     - "make a new town"
+    arguments:
+      <NAME>: "&aWhat would you like to name your town?"
