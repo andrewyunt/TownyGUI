@@ -8,20 +8,57 @@
 # TownyGUI will automatically open to the main menu
 menus:
   Main:
-    title: "&cMain Menu"
-    size: 20
+    title: "Main Menu"
+    size: 9
     material: DIRT
     lore:
     - "&bThe main menu"
     icons:
       Towny:
         slot: 1
+      Plot:
+        slot: 3
+      Resident:
+        slot: 5
+      Town:
+        slot: 7
+      Nation:
+        slot: 9
+      
   Towny:
-    title: "Towny"
+    title: "Towny Menu"
     size: 54
     material: GLASS
     lore:
-    - "Click to go to the Towny menu"
+    - "Towny''s general functions are located here. "
     icons:
       /towny map:
         slot: 5
+  Plot:
+    title: 'Plot Menu'
+    size: 54
+    material: SIGN
+    lore:
+    - "Manage the plot you are currently standing on."
+    icons: {}
+  Resident:
+    title: 'Resident Menu'
+    size: 27
+    material: SKULL_ITEM
+    lore:
+    - "Manage your Towny character."
+    icons: {}
+  Town:
+    title: 'Town Menu'
+    size: 54
+    material: BOOKSHELF
+    lore:
+    - "Manage your town."
+    icons: {}
+  Nation:
+    title: 'Nation Menu'
+    size: 36
+    material: ARROW
+    lore:
+    - "Manage your nation."
+    icons: {}
