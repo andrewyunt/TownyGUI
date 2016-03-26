@@ -68,8 +68,6 @@ public class CommandBuilder implements ConversationAbandonedListener {
 			
 			newCommand = newCommand + " " + input;
 			
-			Bukkit.getServer().broadcastMessage(newCommand);
-			
 			if(conversationLength > 0)
 				return new CommandPrompt();
 			
