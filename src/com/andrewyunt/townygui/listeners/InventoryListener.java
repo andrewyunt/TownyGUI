@@ -3,12 +3,12 @@ package com.andrewyunt.townygui.listeners;
 import java.util.List;
 import java.util.Set;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.andrewyunt.townygui.Menu;
@@ -23,15 +23,17 @@ public class InventoryListener implements Listener {
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent event) {
 		
+		ItemStack item = event.getCurrentItem();
+		
 		Player player = (Player) event.getWhoClicked();
 		
 		if(!(event.getInventory().getHolder() == null))
 			return;
 		
-		if(event.getCurrentItem() == null || !event.getCurrentItem().hasItemMeta())
+		if(item == null || !item.hasItemMeta())
 			return;
 		
-		ItemMeta meta = event.getCurrentItem().getItemMeta();
+		ItemMeta meta = item.getItemMeta();
 		List<String> lore = meta.getLore();
 		
 		if(!HiddenStringUtils.hasHiddenString(lore.get(0)))
@@ -55,7 +57,7 @@ public class InventoryListener implements Listener {
 				arguments = TownyGUI.plugin.commandConfig.getConfig().getConfigurationSection("commands." + action + ".arguments").getKeys(false);
 			} catch(NullPointerException e) {
 				action = action.replace("/", "");
-				Bukkit.getServer().dispatchCommand(player, action);
+				TownyGUI.plugin.server.dispatchCommand(player, action);
 				event.setCancelled(true);
 				return;
 			}

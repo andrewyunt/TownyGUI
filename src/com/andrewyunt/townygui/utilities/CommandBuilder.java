@@ -29,14 +29,14 @@ public class CommandBuilder implements ConversationAbandonedListener {
 	String newCommand;
 	String baseCommand;
 	
-	public CommandBuilder(Set<String> argumentSet, String baseCommand) {
+	public CommandBuilder(Set<String> argumentSet, String inputCommand) {
 		
-		this.newCommand = baseCommand;
-		this.baseCommand = baseCommand;
+		newCommand = inputCommand;
+		baseCommand = inputCommand;
 		
-		this.argumentList = new ArrayList<String>(argumentSet);
+		argumentList = new ArrayList<String>(argumentSet);
 		
-		this.conversationLength = argumentList.size();
+		conversationLength = argumentList.size();
 		
         conversationFactory = new ConversationFactory(TownyGUI.plugin)
                 .withModality(true)

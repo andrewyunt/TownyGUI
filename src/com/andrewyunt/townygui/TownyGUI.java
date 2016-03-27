@@ -1,6 +1,9 @@
 package com.andrewyunt.townygui;
 
+import java.util.logging.Logger;
+
 import org.bukkit.ChatColor;
+import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -24,6 +27,9 @@ public class TownyGUI extends JavaPlugin {
 	
 	private PluginManager pm;
 	
+	public Server server = getServer();
+	public Logger logger = server.getLogger();
+	
 	@Override
 	public void onEnable() {
 		
@@ -33,11 +39,11 @@ public class TownyGUI extends JavaPlugin {
 		commandConfig = new CommandConfiguration();
 		utils = new Utils();
 		
-		pm = getServer().getPluginManager();
+		pm = server.getPluginManager();
 		
 		if(!checkDependencies()) {
-			getServer().getLogger().warning("TownyGUI is missing one or more required dependencies.");
-			getServer().getLogger().warning("Disabling TownyGUI...");
+			logger.warning("TownyGUI is missing one or more required dependencies.");
+			logger.warning("Disabling TownyGUI...");
 			pm.disablePlugin(this);
 			return;
 		}
@@ -51,29 +57,30 @@ public class TownyGUI extends JavaPlugin {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		if(cmd.getName().equalsIgnoreCase("tgui")) {
-			
+		if(cmd.getName().equalsIgnoreCase("tgui"))
 			if(args.length == 0)
 				if(!(sender instanceof Player)) {
 					System.out.println("The user interface cannot be opened from the console.");
 					return true;
 				} else
-					new Menu((Player) sender, "Main");
+					if(sender.hasPermission("towny.gui.open"))
+						new Menu((Player) sender, "Main");
+					else
+						TownyMessaging.sendErrorMsg(sender, "");
 			else if(args.length > 0)
 				if(args[0].equals("reload")) {
 					reload();
 					TownyMessaging.sendMessage(sender, ChatColor.AQUA + "Reloaded TownyGUI successfully.");
 				}
-		}
 		return true;
 	}
 	
 	public boolean checkDependencies() {
 		
-		if(getServer().getPluginManager().getPlugin("Towny") == null)
+		if(pm.getPlugin("Towny") == null)
 			return false;
 		else
-			if(!getServer().getPluginManager().getPlugin("Towny").isEnabled())
+			if(!pm.getPlugin("Towny").isEnabled())
 				return false;
 		return true;
 	}

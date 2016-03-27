@@ -18,21 +18,26 @@ public class Menu {
 	
 	private Set<String> icons;
 	
-	FileConfiguration config;
+	private FileConfiguration commandConfig;
+	private FileConfiguration menuConfig;
+	private FileConfiguration config;
 	
-	Utils utils;
+	private Utils utils;
 	
-	String title;
-	int size;
+	private String title;
+	private int size;
 	
 	public Menu(Player player, String menu) {
 		
+		commandConfig = TownyGUI.plugin.commandConfig.getConfig();
+		menuConfig = TownyGUI.plugin.menuConfig.getConfig();
+		
 		utils = TownyGUI.plugin.utils;
 		
-		icons = TownyGUI.plugin.menuConfig.getConfig().getConfigurationSection("menus." + menu + ".icons").getKeys(false); 
+		icons = menuConfig.getConfigurationSection("menus." + menu + ".icons").getKeys(false); 
 		
-		title = ChatColor.translateAlternateColorCodes('&', TownyGUI.plugin.menuConfig.getConfig().getString("menus." + menu + ".title"));
-		size = TownyGUI.plugin.utils.getInventorySize(TownyGUI.plugin.menuConfig.getConfig().getInt("menus." + menu + ".size"));
+		title = ChatColor.translateAlternateColorCodes('&', menuConfig.getString("menus." + menu + ".title"));
+		size = TownyGUI.plugin.utils.getInventorySize(menuConfig.getInt("menus." + menu + ".size"));
 		
 		openMenu(player, menu);
 	}
@@ -48,10 +53,10 @@ public class Menu {
 			String type;
 			
 			if(icon.startsWith("/")) {
-				config = TownyGUI.plugin.commandConfig.getConfig();
+				config = commandConfig;
 				type = "commands";
 			} else {
-				config = TownyGUI.plugin.menuConfig.getConfig();
+				config = menuConfig;
 				type = "menus";
 			}
 			
@@ -74,7 +79,7 @@ public class Menu {
 				is = TownyGUI.plugin.utils.addGlow(is);
 			
 			try {
-				inv.setItem(TownyGUI.plugin.menuConfig.getConfig().getInt("menus." + menu + ".icons." + icon + ".slot") - 1, is);
+				inv.setItem(menuConfig.getInt("menus." + menu + ".icons." + icon + ".slot") - 1, is);
 			} catch(ArrayIndexOutOfBoundsException e) {
 				TownyMessaging.sendErrorMsg(player, "Icon " + icon + " is configured in a slot outside of the menu. " + e.getMessage());
 				TownyMessaging.sendErrorMsg(player, "Please report this error to your server administrator.");
