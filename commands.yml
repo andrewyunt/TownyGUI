@@ -4,7 +4,6 @@
 # +------------------------------------------------------+ #
 ############################################################
 commands:
-
 # Towny Menu commands
   /towny map:
     title: "Towny Map"
@@ -13,7 +12,7 @@ commands:
     - "Shows the Towny map."
   /towny prices:
     title: "Towny Prices"
-    material: GOLD_INGOT
+    material: EMERALD
     lore:
     - "Shows taxes/costs associated with running a town."
   /towny time:
@@ -43,16 +42,18 @@ commands:
   /towny war stats:
     title: "Stats"
     material: ARROW
-    lore: {}
+    lore:
+    - "Displays war event stats."
   /towny war scores:
     title: "Scores"
     material: ARROW
-    lore: {}
+    lore:
+    - "Displays war event scores."
   /towny war hud:
-    title: "Scores"
+    title: "Toggle War Hud"
     material: ARROW
     lore:
-    - "Toggles the Towny war hud."
+    - "Toggles the Towny war HUD on the right side of the screen."
 
 # Plot Menu Commands
   /plot claim:
@@ -60,24 +61,494 @@ commands:
     material: WOOD_AXE
     lore:
     - "Claims the plot you are currently standing on if it is for sale."
-  /plot claim auto:
-    title: "Automatically Claim Plots"
-    material: WOOD_AXE
-    lore:
-    - "Toggles automatic claiming of the plot you are currently standing on if it is for sale."
   /plot unclaim:
     title: "Unclaim Plot"
     material: FLINT_AND_STEEL
     lore:
     - "Unclaim personally owned plots."
+  /plot forsale:
+    title: "Sell Plot"
+    material: DIAMOND
+    lore:
+    - "Sell the plot you are currently standing on."
     arguments:
-      <SHAPE>: "&aWhat shape do you want to unclaim plots in? Possible options: {circ/rect}"
-      <RADIUS>: "&aWhat radius do you want to unclaim plots in?"
+      <PRICE>: "&aWhat price would you like to sell the plot for?"
+  /plot notforsale:
+    title: "Remove Plot Sale"
+    material: BOOK
+    lore:
+    - "Takes the plot you are currently standing in off the market."
+  /plot perm:
+    title: "Plot Permissions"
+    material: SIGN
+    lore:
+    - "Check the permissions of the plot you are standing on."
+  /plot perm hud:
+    title: "Toggle Plot Permissions Hud"
+    material: SIGN
+    lore:
+    - "Toggles the plot permissions hud on the right side of the screen."
+  /plot set:
+    title: "Set Plot Type"
+    material: BOOK
+    lore:
+    - "Sets a plot to the specified plot type."
+    arguments:
+      <type>: "&aWhat plot type would you like to set the plot to? Possible options: {reset/shop/embassy/arena/inn/jail/wilds/farm}"
+  /plot set name:
+    title: "Set Plot Name"
+    material: NAME_TAG
+    lore:
+    - "Renames a plot, replacing the ~Unowned message if a public plot."
+    - "Personal plots display both the plot's name and owner."
+    arguments:
+      <NAME>: "&aWhat would you like to name the plot?"
+  /plot toggle:
+    title: "Plot Toggle"
+    material: LEVER
+    lore:
+    - "Toggle explosions, pvp, fire and mobs in the plot you are standing on."
+    arguments:
+      <TYPE>: "&aWhat would you like to toggle? Possible options: {explosions/pvp/fire/mobs}"
+  /plot clear:
+    title: "Plot Clear"
+    material: IRON_SPADE
+    lore:
+    - "Removes list of block id’s from a plot."
+    - "&cWARNING: POTENTIAL TO CAUSE DAMAGE!"
+
+# Resident Menu Commands
+  /resident:
+    title: "My Resident"
+    material: PAINTING
+    lore:
+    - "Displays your Towny resident information."
+  /resident friend add:
+    title: "Add Friend"  
+    material: GOLD_NUGGET
+    lore:
+    - "Adds a friend to your friends list who is currently online."
+    arguments:
+      <NAME>: "&aWho do you want to add to your friends list?"
+  /resident friend remove:
+    title: "Remove Friend"
+    material: GHAST_TEAR
+    lore:
+    - "Removes a friend from your friends list."
+    arguments:
+      <NAME>: "&aWho do you want to remove from your friends list?"
+  /resident friend clearlist:
+    title: "Clear Friends List"
+    material: PAPER
+    lore:
+    - "Removes all friends from your friends list."
+  /resident list:
+    title: "List Residents Online"
+    material: BOOK
+    lore:
+    - "Lists all residents currently online on the server."
+  /resident jail paybail:
+    title: "Pay Bail"
+    material: GOLD_INGOT
+    lore:
+    - "Pays your bail if you are currently in a town's jail."
+  /resident spawn:
+    title: "Resident Spawn"
+    material: BED
+    lore:
+    - "Teleport to your bed spawn."
+  /resident tax:
+    title: "Show Taxes"
+    material: DIAMOND
+    lore:
+    - "Shows your current taxes."
+  /resident toggle:
+    title: "Resident Toggle"
+    material: LEVER
+    lore:
+    - "Toggle map, townclaim, plotborder and reset modes for your resident."
+    arguments:
+      <TYPE>: "&aWhat would you like to toggle? Possible options: {map/townclaim/plotborder/reset}"
+
 # Town Menu Commands
+  /town:
+    title: "My Town"
+    material: PAINTING
+    lore:
+    - "Displays information on your town."
+  /town leave:
+    title: "Leave Current Town"
+    material: GHAST_TEAR
+    lore:
+    - "Removes you from the town you are currently a member of."
+  /town list:
+    title: "List Towns"
+    material: PAPER
+    lore:
+    - "Lists all towns currently on the server."
+  /town online:
+    title: "Display Online Town Members"
+    material: BOOK
+    lore:
+    - "Lists all members of the town who are currently online."
   /town new:
     title: "New Town"
     material: NAME_TAG
     lore:
-    - "make a new town"
+    - "Creates a new town with the specified name."
     arguments:
       <NAME>: "&aWhat would you like to name your town?"
+  /town add:
+    title: "Add Resident"
+    material: FEATHER
+    lore:
+    - "Invites a resident to the town."
+  /town kick:
+    title: "Kick Resident"
+    material: SHIELD
+    lore:
+    - "Kicks a resident from the town."
+  /town spawn:
+    title: "Town Spawn"
+    material: ENDER_PEARL
+    lore:
+    - "Teleport to the town spawn."
+  /town outpost:
+    title: "Town Outpost"
+    material: ENDER_PEARL
+    lore:
+    - "Teleport to the town outpost."
+  /town claim:
+    title: "Town Claim"
+    material: BANNER
+    lore:
+    - "Claims the current town block you are standing on."
+  /town unclaim:
+    title: "Town Unclaim"
+    material: FENCE
+    lore:
+    - "Unclaims the current town block you are standing on."
+  /town withdraw:
+    title: "Town Withdraw"
+    material: GOLD_INGOT
+    lore:
+    - "Withdraw money from the town bank."
+    arguments:
+      <AMOUNT>: "&aHow much do you want to withdraw from the town bank?"
+  /town deposit:
+    title: "Town Deposit"
+    material: GOLD_INGOT
+    lore:
+    - "Deposit money into the town bank."
+    arguments:
+      <AMOUNT>: "&aHow much do you want to deposit into the town bank?"
+  /town buy bonus:
+    title: "Buy Bonus Blocks"
+    material: GRASS
+    lore:
+    - "Buy bonus town blocks for the town."
+    arguments:
+      <AMOUNT>: "&aHow many bonus town blocks would you like to purchase?"
+  /town ranklist:
+    title: "Town Rank List"
+    material: BOOK
+    lore:
+    - "Displays the town's residents and their ranks."
+  /town rank:
+    title: "Add/Remove Town Rank"
+    material: BOOK
+    lore:
+    - "Add or remove a resident's town rank."
+    arguments:
+      <ACTION>: "&aWhat action do you want to do? Possible options: {add/remove}"
+      <RESIDENT>: "&aWhich resident would you like to change?"
+      <RANK>: "&aWhat rank do you want to add/remove?"
+  /town reslist:
+    title: "List Town Residents"
+    material: PAPER
+    lore: {}
+  /town join:
+    title: "Join Town"
+    material: WOOD_DOOR
+    lore:
+    - "Join an open town."
+  /town delete:
+    title: "Delete Town"
+    material: REDSTONE
+    lore:
+    - "Deletes your town and sets all town blocks to wilderness."
+    - "WARNING: POTENTIAL TO CAUSE DAMAGE!"
+  /town set board:
+    title: "Set Town Board"
+    material: SIGN
+    lore:
+    - "Sets your town board message."
+    arguments:
+      <MSG>: "&aWhat message would you like the town board to display?"
+  /town set mayor:
+    title: "Set Town Mayor"
+    material: TORCH
+    lore:
+    - "Sets your town mayor."
+    arguments:
+      <MSG>: "&aWho do you want to set as your town mayor?"
+  /town set homeblock:
+    title: "Set Town Homeblock"
+    material: GRASS
+    lore:
+    - "Sets the town homeblock and spawn of your town."
+  /town set spawn:
+    title: "Set Town Spawn"
+    material: ENDER_PEARL
+    lore:
+    - "Sets the town spawn, must be inside the homeblock."
+  /town set name:
+    title: "Set Town Name"
+    material: NAME_TAG
+    lore:
+    - "Changes your town's name."
+    arguments:
+      <NAME>: "&aWhat would you like to rename the town to?"
+  /town set tag:
+    title: "Set Town Tag"
+    material: NAME_TAG
+    lore:
+    - "Changes your town's 4 character tag."
+    arguments:
+      <TAG>: "What would you like to change the town tag to?"
+  /town set outpost:
+    title: "Set Town Outpost"
+    material: GRASS
+    lore:
+    - "Sets a town block as an outpost."
+  /town set jail:
+    title: "Set Town Jail"
+    material: IRON_FENCE
+    lore:
+    - "Sets town jail spawn."
+  /town set taxes:
+    title: "Set Town Taxes"
+    material: DIAMOND
+    lore:
+    - "Sets the daily town tax amount for each resident."
+  /town set plottax:
+    title: "Set Plot Taxes"
+    material: DIAMOND
+    lore:
+    - "Sets the amount of tax residents pay daily for each plot."
+  /town set shoptax:
+    title: "Set Shop Taxes"
+    material: DIAMOND
+    lore:
+    - "Sets the amount of tax collected for each shop plot daily."
+  /town set embassytax:
+    title: "Set Embassy Taxes"
+    material: DIAMOND
+    lore:
+    - "Sets the amount of tax collected from each embassy plot daily."
+  /town set plotprice:
+    title: "Set Plot Price"
+    material: GOLD_INGOT
+    lore:
+    - "Sets the default price for town plots."
+  /town set shopprice:
+    title: "Set Shop Plot Price"
+    material: GOLD_INGOT
+    lore:
+    - "Sets the default shop plot price for the town."
+  /town set embassyprice:
+    title: "Set Embassy Plot Price"
+    material: GOLD_INGOT
+    lore:
+    - "Sets the default embassy plot price for the town."
+  /town toggle explosion:
+    title: "Toggle Explosions"
+    material: TNT
+    lore:
+    - "Toggles town explosions on or off."
+  /town toggle fire:
+    title: "Toggle Fires"
+    material: FLINT_AND_STEEL
+    lore:
+    - "Toggles town fires on or off."
+  /town toggle mobs:
+    title: "Toggle Mobs"
+    material: SKULL_ITEM
+    lore:
+    - "Toggles town mobs on or off."
+  /town toggle pvp:
+    title: "Toggle PvP"
+    material: IRON_SWORD
+    enchant_glow: true
+    lore:
+    - "Toggles town pvp on or off."
+  /town toggle public:
+    title: "Toggle Public Spawning"
+    material: ENDER_PEARL
+    lore:
+    - "Toggles public town spawning on or off."
+  /town toggle taxpercent:
+    title: "Toggle Tax Percentage"
+    material: DIAMOND
+    lore:
+    - "Toggles town tax between flat rate or percentage."
+  /town toggle open:
+    title: "Toggle Open Status"
+    material: WOOD_DOOR
+    lore:
+    - "Toggles the town's join status between open and closed."
+  /town toggle jail:
+    title: "Toggle Jail"
+    material: IRON_FENCE
+    lore:
+    - "Toggles a resident's jail status."
+    arguments:
+      <NUMBER>: "&aWhat jail number would you like to use?"
+      <RESIDENT>: "&aWho do you want to jail?"
+
+# Nation Menu Commands
+  /nation list:
+    title: "List Nations"
+    material: PAPER
+    lore:
+    - "Lists all nations on the server."
+  /nation online:
+    title: "Display Online Nation Members"
+    material: BOOK
+    lore:
+    - "Lists all members of the town who are currently online."
+  /nation leave:
+    title: "Leave Nation"
+    material: REDSTONE
+    lore:
+    - "Removes the town from the nation."
+  /nation withdraw:
+    title: "Nation Withdraw"
+    material: GOLD_INGOT
+    lore:
+    - "Withdraw money from the nation bank."
+    arguments:
+      <AMOUNT>: "How much do you want to withdraw from the nation bank?"
+  /nation deposit:
+    title: "Nation Deposit"
+    material: GOLD_INGOT
+    lore:
+    - "Deposit money into the nation bank."
+    arguments:
+      <AMOUNT>: "How much do you want to deposit into the nation bank?"
+  /nation new:
+     title: "New Nation"
+     material: NAME_TAG
+     lore:
+     - "Creates a new town with the specified name."
+  /nation add:
+    title: "Invite Town"
+    material: WOOD_DOOR
+    lore:
+    - "Invites a town to join the nation."
+  /nation kick:
+    title: "Kick Town"
+    material: SHIELD
+    lore:
+    - "Kicks a town from the nation."
+  /nation delete:
+    title: "Delete Nation"
+    material: REDSTONE
+    lore:
+    - "Deletes your nation and removes all towns."
+    - "WARNING: POTENTIAL TO CAUSE DAMAGE!"
+  /nation ally add:
+    title: "Add Ally"
+    material: RED_ROSE
+    lore:
+    - "Forms an alliance with another nation."
+    arguments:
+      <NATION>: "&aWhich nation would you like to ally with?"
+  /nation ally remove:
+    title: "Remove Ally"
+    material: RED_ROSE
+    lore:
+    - "Cancels an alliance with another nation."
+    arguments:
+      <NATION>: "&aWhich nation would you like to cancel alliance with?"
+  /nation enemy add:
+    title: "Add Enemy"
+    material: ARROW
+    lore:
+    - "Add another nation to your enemies list."
+    arguments:
+      <NATION>: "&aWhich nation would you like to add as an enemy?"
+  /nation enemy remove:
+    title: "Remove Enemy"
+    material: ARROW
+    lore:
+    - "Add another nation to your enemies list."
+    arguments:
+      <NATION>: "&aWhich nation would you like to add as an enemy?"
+  /nation rank:
+    title: "Add/Remove Nation Rank"
+    material: BOOK
+    lore:
+    - "Add or remove a resident's nation rank."
+    arguments:
+      <ACTION>: "&aWhat action do you want to do? Possible options: {add/remove}"
+      <RESIDENT>: "&aWhich resident would you like to change?"
+      <RANK>: "&aWhat rank do you want to add/remove?"
+  /nation toggle peaceful:
+    title: "Toggle Nation Peace"
+    material: YELLOW_FLOWER
+    lore:
+    - "Sets whether your nation will pay daily be peaceful."
+    - "Peace status will prevent your nation from being"
+    - "attacked during Towny war."
+  /nation set king:
+    title: "Set Nation King"
+    material: GOLD_HELMET
+    lore:
+    - "Sets the nation's king."
+    arguments:
+      <RESIDENT>: "&aWho would you like to set as the king?"
+  /nation set capital:
+    title: "Set Nation Capital"
+    material: WOOD_DOOR
+    lore:
+    -  "Sets the nation's capital."
+    arguments:
+      <TOWN>: "&aWhat town would you like to set as the capital?"
+  /nation set taxes:
+    title: "Set Nation Taxes"
+    material: DIAMOND
+    lore:
+    - "Sets the tax for towns within the nation."
+    arguments:
+      <AMOUNT>: "&aHow much would you like to tax towns in the nation?"
+  /nation set name:
+    title: "Set Nation Name"
+    material: NAME_TAG
+    lore:
+    - "Sets the name of the nation."
+    arguments:
+      <NAME>: "&aWhat would you like to set the name of the nation to?"
+  /nation set title:
+    title: "Set Resident Title"
+    material: NAME_TAG
+    lore:
+    - "Sets a resident's title in the nation."
+    arguments:
+      <RESIDENT>: "&aWho would you like to set the title of?"
+      <TITLE>: "&aWhat would you like to set their title to?"
+  /nation set surname:
+    title: "Set Resident Surname"
+    material: NAME_TAG
+    lore:
+    - "Sets a resident's surname in the nation."
+    arguments:
+      <RESIDENT>: "&aWho would you like to set the surname of?"
+      <SURNAME>: "&aWhat would you like to set their surname to?"
+  /nation set tag:
+    title: "Set Nation Tag"
+    material: NAME_TAG
+    lore:
+    - "Changes your town's 4 character tag."
+    arguments:
+      <TAG>: "What would you like to change the nation tag to?"

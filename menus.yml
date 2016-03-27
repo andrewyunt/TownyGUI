@@ -49,7 +49,7 @@ menus:
         slot: 27
   Plot:
     title: "Plot Menu"
-    size: 54
+    size: 36
     material: SIGN
     lore:
     - "Manage the plot you are currently standing on."
@@ -58,33 +58,151 @@ menus:
         slot: 1
       /plot unclaim:
         slot: 3
+      /plot forsale:
+        slot: 5
+      /plot notforsale:
+        slot: 7
+      /plot perm:
+        slot: 9
+      /plot perm hud:
+        slot: 11
+      /plot set:
+        slot: 13
+      /plot set name:
+        slot: 15
+      /plot toggle:
+        slot: 17
+      /plot clear:
+        slot: 23
+      Main:
+        slot: 36
   Resident:
     title: "Resident Menu"
     size: 27
-    material: SKULL_ITEM
+    material: WOOD_DOOR
     lore:
     - "Manage your Towny character."
-    icons: {}
+    icons:
+      /resident:
+        slot: 1
+      /resident friend add:
+        slot: 3
+      /resident friend remove:
+        slot: 5
+      /resident friend clearlist:
+        slot: 7
+      /resident list:
+        slot: 9
+      /resident jail paybail:
+        slot: 11
+      /resident spawn:
+        slot: 13
+      /resident tax:
+        slot: 15
+      /resident toggle:
+        slot: 17
+      Main:
+        slot: 27
   Town:
     title: "Town Menu"
     size: 54
     material: BOOKSHELF
     lore:
     - "Manage your town."
-    icons: {}
+    icons:
+      /town:
+        slot: 1
+      /town leave:
+        slot: 3
+      /town list:
+        slot: 5
+      /town online:
+        slot: 7
+      /town new:
+        slot: 9
+      /town add:
+        slot: 11
+      /town kick:
+        slot: 13
+      /town spawn:
+        slot: 15
+      /town outpost:
+        slot: 17
+      /town claim:
+        slot: 19
+      /town unclaim:
+        slot: 21
+      /town withdraw:
+        slot: 23
+      /town deposit:
+        slot: 25
+      /town buy bonus:
+        slot: 27
+      /town ranklist:
+        slot: 29
+      /town rank:
+        slot: 31
+      /town reslist:
+        slot: 33
+      /town join:
+        slot: 35
+      Town_Toggle:
+        slot: 39
+      Town_Set:
+        slot: 41
+      /town delete:
+        slot: 43
+      Main:
+        slot: 54
   Nation:
     title: "Nation Menu"
-    size: 36
+    size: 45
     material: ARROW
     lore:
     - "Manage your nation."
-    icons: {}
+    icons:
+      /nation list:
+        slot: 1
+      /nation online:
+        slot: 3
+      /nation leave:
+        slot: 5
+      /nation withdraw:
+        slot: 7
+      /nation deposit:
+        slot: 9
+      /nation new:
+        slot: 11
+      /nation rank:
+        slot: 13
+      /nation add:
+        slot: 15
+      /nation kick:
+        slot: 17
+      /nation delete:
+        slot: 19
+      /nation ally add:
+        slot: 21
+      /nation ally remove:
+        slot: 23
+      /nation enemy add:
+        slot: 25
+      /nation enemy remove:
+        slot: 27
+      /nation rank:
+        slot: 29
+      /nation toggle peaceful:
+        slot: 31
+      Nation_Set:
+        slot: 33
+      Main:
+        slot: 45
   Towny_War:
     title: "Towny War Menu"
-    size: 9
+    size: 18
     material: IRON_SWORD
-    lore:
-    - "Commands related to Towny war."
+    enchant_glow: true
+    lore: {}
     icons:
       /towny war stats:
         slot: 3
@@ -92,3 +210,89 @@ menus:
         slot: 5
       /towny war hud:
         slot: 7
+      Towny:
+        slot: 18
+  Town_Set:
+    title: "Town Set Menu"
+    size: 45
+    material: WOOD_BUTTON
+    lore: {}
+    icons:
+      /town set board:
+        slot: 1
+      /town set mayor:
+        slot: 3
+      /town set homeblock:
+        slot: 5
+      /town set spawn:
+        slot: 7
+      /town set name:
+        slot: 9
+      /town set tag:
+        slot: 11
+      /town set outpost:
+        slot: 13
+      /town set jail:
+        slot: 15
+      /town set taxes:
+        slot: 17
+      /town set plottax:
+        slot: 19
+      /town set shoptax:
+        slot: 21
+      /town set embassytax:
+        slot: 23
+      /town set plotprice:
+        slot: 25
+      /town set shopprice:
+        slot: 27
+      /town set embassyprice:
+        slot: 31
+      Town:
+        slot: 45
+  Town_Toggle:
+    title: "Town Toggle Menu"
+    size: 27
+    material: LEVER
+    lore: {}
+    icons:
+      /town toggle explosion:
+        slot: 1
+      /town toggle fire:
+        slot: 3
+      /town toggle mobs:
+        slot: 5
+      /town toggle pvp:
+        slot: 7
+      /town toggle public:
+        slot: 9
+      /town toggle taxpercent:
+        slot: 11
+      /town toggle open:
+        slot: 13
+      /town toggle jail:
+        slot: 15
+      Town:
+        slot: 27
+  Nation_Set:
+    title: "Nation Set Menu"
+    size: 27
+    material: WOOD_BUTTON
+    lore: {}
+    icons:
+      /nation set king:
+        slot: 1
+      /nation set capital:
+        slot: 3
+      /nation set taxes:
+        slot: 5
+      /nation set name:
+        slot: 7
+      /nation set title:
+        slot: 9
+      /nation set surname:
+        slot: 13
+      /nation set tag:
+        slot: 15
+      Nation:
+        slot: 27
