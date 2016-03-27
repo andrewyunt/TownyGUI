@@ -1,18 +1,18 @@
 v0.10:
-		Added command "tgui" with the alias "townygui"
-		Added dependency check for Towny
+	Added command "tgui" with the alias "townygui"
+	Added dependency check for Towny
 v0.11:
-		Added config.yml, menus.yml and commands.yml
-		Added command "tgui reload" to reload the configuration files
-		Added error message for the console attempting to open the GUI menu
-		Added option to use '&' color codes in the configuration files
+	Added config.yml, menus.yml and commands.yml
+	Added command "tgui reload" to reload the configuration files
+	Added error message for the console attempting to open the GUI menu
+	Added option to use '&' color codes in the configuration files
 v0.12:
-		Removed config.yml
-		Added option to use command arguments with chat prompts
-		Added out of bounds error message
-		Changed the menu so the first slot is integer is 1 instead of 0
+	Removed config.yml
+	Added option to use command arguments with chat prompts
+	Added out of bounds error message
+	Changed the menu so the first slot is integer is 1 instead of 0
 v0.13:
-		Added default menus and commands to the configuration
-		Added error message if a material does not exist for a menu or command
-		Added option "enchant_glow" to the configuration to make items glow
-		Changed the out of bounds error message
+	Added default menus and commands to the configuration
+	Added error message if a material does not exist for a menu or command
+	Added option "enchant_glow" to the configuration to make items glow
+	Changed the out of bounds error message
