@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.ChatColor;
+import org.bukkit.craftbukkit.v1_9_R1.inventory.CraftItemStack;
+import org.bukkit.inventory.ItemStack;
 
 import com.gmail.filoghost.hiddenstring.HiddenStringUtils;
+
+import net.minecraft.server.v1_9_R1.NBTTagCompound;
+import net.minecraft.server.v1_9_R1.NBTTagList;
 
 public class Utils {
 	
@@ -23,9 +28,8 @@ public class Utils {
 		
 		List<String> colorized = new ArrayList<String>();
 		
-		for(String line : input) {
+		for(String line : input)
 			colorized.add(ChatColor.translateAlternateColorCodes('&', line));
-		}
 		
 		return colorized;
 	}
@@ -40,5 +44,20 @@ public class Utils {
 			outputLore.add(line);
 		
 		return outputLore;
+	}
+	
+	public ItemStack addGlow(ItemStack is) {
+		
+		net.minecraft.server.v1_9_R1.ItemStack nmsItem = CraftItemStack.asNMSCopy(is);
+		
+		NBTTagCompound nbt = nmsItem.getTag() == null ? new NBTTagCompound() : nmsItem.getTag();
+		
+		NBTTagList ench = new NBTTagList();
+		
+		nbt.set("ench", ench);
+		
+		nmsItem.setTag(nbt);
+		
+		return CraftItemStack.asBukkitCopy(nmsItem);
 	}
 }

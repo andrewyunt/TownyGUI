@@ -54,6 +54,7 @@ public class Menu {
 				config = TownyGUI.plugin.menuConfig.getConfig();
 				type = "menus";
 			}
+			
 			try {
 				is = new ItemStack(Material.getMaterial(config.getString(type + "." + icon + ".material")));
 			} catch(NullPointerException e) {
@@ -68,6 +69,9 @@ public class Menu {
 			meta.setLore(utils.hideStringInLore(utils.colorizeStringList(config.getStringList(type + "." + icon + ".lore")), icon));
 			
 			is.setItemMeta(meta);
+			
+			if(config.getBoolean(type + "." + icon + ".enchant_glow"))
+				is = TownyGUI.plugin.utils.addGlow(is);
 			
 			try {
 				inv.setItem(TownyGUI.plugin.menuConfig.getConfig().getInt("menus." + menu + ".icons." + icon + ".slot") - 1, is);
