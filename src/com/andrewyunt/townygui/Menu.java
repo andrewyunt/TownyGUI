@@ -52,6 +52,8 @@ public class Menu {
 			
 			String type;
 			
+			String permission = null;
+			
 			if(icon.startsWith("/")) {
 				config = commandConfig;
 				type = "commands";
@@ -59,6 +61,12 @@ public class Menu {
 				config = menuConfig;
 				type = "menus";
 			}
+			
+			permission = config.getString(type + "." + icon + ".permission");
+			
+			if(!(permission == null))
+				if(!player.hasPermission(permission))
+					continue;
 			
 			try {
 				is = new ItemStack(Material.getMaterial(config.getString(type + "." + icon + ".material")));
