@@ -116,13 +116,27 @@ commands:
     - "Personal plots display both the plot's name and owner."
     arguments:
       <NAME>: "&aWhat would you like to name the plot?"
-  /plot toggle:
-    title: "Plot Toggle"
-    material: LEVER
+  /plot toggle explosions:
+    title: "Toggle Plot Explosions"
+    material: TNT
     lore:
-    - "Toggle explosions, pvp, fire and mobs in the plot you are standing on."
-    arguments:
-      <TYPE>: "&aWhat would you like to toggle? Possible options: {explosions/pvp/fire/mobs}"
+    - "Toggles explosions in the plot you are standing on."
+  /plot toggle fire:
+    title: "Toggle Plot Fire"
+    material: FLINT_AND_STEEL
+    lore:
+    - "Toggles fire in the plot you are standing on."
+  /plot toggle mobs:
+    title: "Toggle Plot Mobs"
+    material: SKULL_ITEM
+    lore:
+    - "Toggles mobs in the plot you are standing on."
+  /plot toggle pvp:
+    title: "Toggle Plot PvP"
+    material: IRON_SWORD
+    enchant_glow: true
+    lore:
+    - "Toggles PvP in the plot you are standing on."
   /plot clear:
     title: "Plot Clear"
     permission: "towny.command.plot.clear"
@@ -183,13 +197,21 @@ commands:
     material: DIAMOND
     lore:
     - "Shows your current taxes."
-  /resident toggle:
-    title: "Resident Toggle"
-    material: LEVER
+  /resident toggle map:
+    title: "Toggle Map"
+    material: EMPTY_MAP
     lore:
-    - "Toggle map, townclaim, plotborder and reset modes for your resident."
-    arguments:
-      <TYPE>: "&aWhat would you like to toggle? Possible options: {map/townclaim/plotborder/reset}"
+    - "Toggles the Towny map displayed in chat."
+  /resident toggle plotborder:
+    title: "Toggle Plot Border"
+    material: FENCE
+    lore:
+    - "Toggles black smoke from showing while moving between town blocks."
+  /resident toggle townclaim:
+    title: "Toggle Claiming"
+    material: WOOL
+    lore:
+    - "Toggles automatic town block claiming on/off."
 
 # Town Menu Commands
   /town:

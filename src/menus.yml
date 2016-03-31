@@ -70,7 +70,7 @@ menus:
         slot: 13
       /plot set name:
         slot: 15
-      /plot toggle:
+      Plot_Toggle:
         slot: 17
       /plot clear:
         slot: 23
@@ -99,7 +99,7 @@ menus:
         slot: 13
       /resident tax:
         slot: 15
-      /resident toggle:
+      Resident_Toggle:
         slot: 17
       Main:
         slot: 27
@@ -297,3 +297,33 @@ menus:
         slot: 15
       Nation:
         slot: 27
+  Plot_Toggle:
+    title: "Plot Toggle Menu"
+    size: 18
+    material: LEVER
+    lore: {}
+    icons:
+      /plot toggle explosions:
+        slot: 1
+      /plot toggle fire:
+        slot: 3
+      /plot toggle mobs:
+        slot: 5
+      /plot toggle pvp:
+        slot: 7
+      Plot:
+        slot: 18
+  Resident_Toggle:
+    title: "Resident Toggle Menu"
+    size: 18
+    material: LEVER
+    lore: {}
+    icons:
+      /resident toggle map:
+        slot: 3
+      /resident toggle plotborder:
+        slot: 5
+      /resident toggle townclaim:
+        slot: 7
+      Resident:
+        slot: 18
