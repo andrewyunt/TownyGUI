@@ -7,21 +7,25 @@ commands:
 # Towny Menu commands
   /towny map:
     title: "Towny Map"
+    permission: "towny.command.towny.map"
     material: EMPTY_MAP
     lore:
     - "Shows the Towny map."
   /towny prices:
     title: "Towny Prices"
+    permission: "towny.command.towny.prices"
     material: EMERALD
     lore:
     - "Shows taxes/costs associated with running a town."
   /towny time:
     title: "Towny Time"
+    permission: "towny.command.towny.time"
     material: WATCH
     lore:
     - "Shows time until next new-day (tax/upkeep collection.)"
   /towny top residents:
     title: "Top Residents"
+    permission: "towny.command.towny.top"
     material: SKULL_ITEM
     lore:
     - "Shows top residents."
@@ -29,6 +33,7 @@ commands:
       <WHERE>: "&aWhich place do you want to get the top residents from? Possible options: {all/town/nation}"
   /towny top land:
     title: "Top Land Owners"
+    permission: "towny.command.towny.top"
     material: GRASS
     lore:
     - "Shows top land owners."
@@ -36,6 +41,7 @@ commands:
       <WHERE>: "&aWhich place do you want to get the top land owners from? Possible options: {all/town/nation}"
   /towny universe:
     title: "Towny Universe"
+    permission: "towny.command.towny.universe"
     material: GRASS
     lore:
     - "Shows full Towny stats, resident/town/nation/world counts as well as townblocks claimed."
@@ -58,16 +64,19 @@ commands:
 # Plot Menu Commands
   /plot claim:
     title: "Claim Plot"
+    permission: "towny.command.plot.claim"
     material: WOOD_AXE
     lore:
     - "Claims the plot you are currently standing on if it is for sale."
   /plot unclaim:
     title: "Unclaim Plot"
+    permission: "towny.command.plot.unclaim"
     material: FLINT_AND_STEEL
     lore:
     - "Unclaim personally owned plots."
   /plot forsale:
     title: "Sell Plot"
+    permission: "towny.command.plot.forsale"
     material: DIAMOND
     lore:
     - "Sell the plot you are currently standing on."
@@ -75,16 +84,19 @@ commands:
       <PRICE>: "&aWhat price would you like to sell the plot for?"
   /plot notforsale:
     title: "Remove Plot Sale"
+    permission: "towny.command.plot.notforsale"
     material: BOOK
     lore:
     - "Takes the plot you are currently standing in off the market."
   /plot perm:
     title: "Plot Permissions"
+    permission: "towny.command.plot.perm"
     material: SIGN
     lore:
     - "Check the permissions of the plot you are standing on."
   /plot perm hud:
     title: "Toggle Plot Permissions Hud"
+    permission: "towny.command.plot.perm"
     material: SIGN
     lore:
     - "Toggles the plot permissions hud on the right side of the screen."
@@ -97,6 +109,7 @@ commands:
       <type>: "&aWhat plot type would you like to set the plot to? Possible options: {reset/shop/embassy/arena/inn/jail/wilds/farm}"
   /plot set name:
     title: "Set Plot Name"
+    permission: "towny.command.town.set.name"
     material: NAME_TAG
     lore:
     - "Renames a plot, replacing the ~Unowned message if a public plot."
@@ -112,6 +125,7 @@ commands:
       <TYPE>: "&aWhat would you like to toggle? Possible options: {explosions/pvp/fire/mobs}"
   /plot clear:
     title: "Plot Clear"
+    permission: "towny.command.plot.clear"
     material: IRON_SPADE
     lore:
     - "Removes list of block id’s from a plot."
@@ -124,7 +138,8 @@ commands:
     lore:
     - "Displays your Towny resident information."
   /resident friend add:
-    title: "Add Friend"  
+    title: "Add Friend"
+    permission: "towny.command.resident.friend"
     material: GOLD_NUGGET
     lore:
     - "Adds a friend to your friends list who is currently online."
@@ -132,6 +147,7 @@ commands:
       <NAME>: "&aWho do you want to add to your friends list?"
   /resident friend remove:
     title: "Remove Friend"
+    permission: "towny.command.resident.friend"
     material: GHAST_TEAR
     lore:
     - "Removes a friend from your friends list."
@@ -139,26 +155,31 @@ commands:
       <NAME>: "&aWho do you want to remove from your friends list?"
   /resident friend clearlist:
     title: "Clear Friends List"
+    permission: "towny.command.resident.friend"
     material: PAPER
     lore:
     - "Removes all friends from your friends list."
   /resident list:
     title: "List Residents Online"
+    permission: "towny.command.resident.list"
     material: BOOK
     lore:
     - "Lists all residents currently online on the server."
   /resident jail paybail:
     title: "Pay Bail"
+    permission: "towny.command.resident.jail"
     material: GOLD_INGOT
     lore:
     - "Pays your bail if you are currently in a town's jail."
   /resident spawn:
     title: "Resident Spawn"
+    permission: "towny.command.resident.spawn"
     material: BED
     lore:
     - "Teleport to your bed spawn."
   /resident tax:
     title: "Show Taxes"
+    permission: "towny.command.resident.tax"
     material: DIAMOND
     lore:
     - "Shows your current taxes."
@@ -178,11 +199,13 @@ commands:
     - "Displays information on your town."
   /town leave:
     title: "Leave Current Town"
+    permission: "towny.command.town.leave"
     material: GHAST_TEAR
     lore:
     - "Removes you from the town you are currently a member of."
   /town list:
     title: "List Towns"
+    permission: "towny.command.town.list"
     material: PAPER
     lore:
     - "Lists all towns currently on the server."
@@ -193,6 +216,7 @@ commands:
     - "Lists all members of the town who are currently online."
   /town new:
     title: "New Town"
+    permission: "towny.command.town.new"
     material: NAME_TAG
     lore:
     - "Creates a new town with the specified name."
@@ -200,36 +224,43 @@ commands:
       <NAME>: "&aWhat would you like to name your town?"
   /town add:
     title: "Add Resident"
+    permission: "towny.command.town.add"
     material: FEATHER
     lore:
     - "Invites a resident to the town."
   /town kick:
     title: "Kick Resident"
+    permission: "towny.command.town.kick"
     material: SHIELD
     lore:
     - "Kicks a resident from the town."
   /town spawn:
     title: "Town Spawn"
+    permission: "towny.town.spawn.town"
     material: ENDER_PEARL
     lore:
     - "Teleport to the town spawn."
   /town outpost:
     title: "Town Outpost"
+    permission: "towny.town.spawn.outpost"
     material: ENDER_PEARL
     lore:
     - "Teleport to the town outpost."
   /town claim:
     title: "Town Claim"
+    permission: "towny.command.town.claim.town"
     material: BANNER
     lore:
     - "Claims the current town block you are standing on."
   /town unclaim:
     title: "Town Unclaim"
+    permission: "towny.command.town.unclaim"
     material: FENCE
     lore:
     - "Unclaims the current town block you are standing on."
   /town withdraw:
     title: "Town Withdraw"
+    permission: "towny.command.town.withdraw"
     material: GOLD_INGOT
     lore:
     - "Withdraw money from the town bank."
@@ -237,6 +268,7 @@ commands:
       <AMOUNT>: "&aHow much do you want to withdraw from the town bank?"
   /town deposit:
     title: "Town Deposit"
+    permission: "towny.command.town.deposit"
     material: GOLD_INGOT
     lore:
     - "Deposit money into the town bank."
@@ -244,6 +276,7 @@ commands:
       <AMOUNT>: "&aHow much do you want to deposit into the town bank?"
   /town buy bonus:
     title: "Buy Bonus Blocks"
+    permission: "towny.command.town.buy"
     material: GRASS
     lore:
     - "Buy bonus town blocks for the town."
@@ -251,11 +284,13 @@ commands:
       <AMOUNT>: "&aHow many bonus town blocks would you like to purchase?"
   /town ranklist:
     title: "Town Rank List"
+    permission: "towny.command.town.ranklist"
     material: BOOK
     lore:
     - "Displays the town's residents and their ranks."
   /town rank:
     title: "Add/Remove Town Rank"
+    permission: "towny.command.town.rank.*"
     material: BOOK
     lore:
     - "Add or remove a resident's town rank."
@@ -265,21 +300,25 @@ commands:
       <RANK>: "&aWhat rank do you want to add/remove?"
   /town reslist:
     title: "List Town Residents"
+    permission: "towny.command.town.reslist"
     material: PAPER
     lore: {}
   /town join:
     title: "Join Town"
+    permission: "towny.command.town.join"
     material: WOOD_DOOR
     lore:
     - "Join an open town."
   /town delete:
     title: "Delete Town"
+    permission: "towny.command.town.delete"
     material: REDSTONE
     lore:
     - "Deletes your town and sets all town blocks to wilderness."
     - "WARNING: POTENTIAL TO CAUSE DAMAGE!"
   /town set board:
     title: "Set Town Board"
+    permission: "towny.command.town.set.board"
     material: SIGN
     lore:
     - "Sets your town board message."
@@ -287,6 +326,7 @@ commands:
       <MSG>: "&aWhat message would you like the town board to display?"
   /town set mayor:
     title: "Set Town Mayor"
+    permission: "towny.command.town.set.mayor"
     material: TORCH
     lore:
     - "Sets your town mayor."
@@ -294,16 +334,19 @@ commands:
       <MSG>: "&aWho do you want to set as your town mayor?"
   /town set homeblock:
     title: "Set Town Homeblock"
+    permission: "towny.command.town.set.homeblock"
     material: GRASS
     lore:
     - "Sets the town homeblock and spawn of your town."
   /town set spawn:
     title: "Set Town Spawn"
+    permission: "towny.command.town.set.spawn"
     material: ENDER_PEARL
     lore:
     - "Sets the town spawn, must be inside the homeblock."
   /town set name:
     title: "Set Town Name"
+    permission: "towny.command.town.set.name"
     material: NAME_TAG
     lore:
     - "Changes your town's name."
@@ -311,6 +354,7 @@ commands:
       <NAME>: "&aWhat would you like to rename the town to?"
   /town set tag:
     title: "Set Town Tag"
+    permission: "towny.command.town.set.tag"
     material: NAME_TAG
     lore:
     - "Changes your town's 4 character tag."
@@ -318,87 +362,104 @@ commands:
       <TAG>: "What would you like to change the town tag to?"
   /town set outpost:
     title: "Set Town Outpost"
+    permission: "towny.command.town.set.outpost"
     material: GRASS
     lore:
     - "Sets a town block as an outpost."
   /town set jail:
     title: "Set Town Jail"
+    permission: "towny.command.town.set.jail"
     material: IRON_FENCE
     lore:
     - "Sets town jail spawn."
   /town set taxes:
     title: "Set Town Taxes"
+    permission: "towny.command.town.set.taxes"
     material: DIAMOND
     lore:
     - "Sets the daily town tax amount for each resident."
   /town set plottax:
     title: "Set Plot Taxes"
+    permission: "towny.command.town.set.plottax"
     material: DIAMOND
     lore:
     - "Sets the amount of tax residents pay daily for each plot."
   /town set shoptax:
     title: "Set Shop Taxes"
+    permission: "towny.command.town.set.shoptax"
     material: DIAMOND
     lore:
     - "Sets the amount of tax collected for each shop plot daily."
   /town set embassytax:
     title: "Set Embassy Taxes"
+    permission: "towny.command.town.set.embassytax"
     material: DIAMOND
     lore:
     - "Sets the amount of tax collected from each embassy plot daily."
   /town set plotprice:
     title: "Set Plot Price"
+    permission: "towny.command.town.set.plotprice"
     material: GOLD_INGOT
     lore:
     - "Sets the default price for town plots."
   /town set shopprice:
     title: "Set Shop Plot Price"
+    permission: "towny.command.town.set.shopprice"
     material: GOLD_INGOT
     lore:
     - "Sets the default shop plot price for the town."
   /town set embassyprice:
     title: "Set Embassy Plot Price"
+    permission: "towny.command.town.set.embassyprice"
     material: GOLD_INGOT
     lore:
     - "Sets the default embassy plot price for the town."
   /town toggle explosion:
     title: "Toggle Explosions"
+    permission: "towny.command.town.toggle.explosion"
     material: TNT
     lore:
     - "Toggles town explosions on or off."
   /town toggle fire:
     title: "Toggle Fires"
+    permission: "towny.command.town.toggle.fire"
     material: FLINT_AND_STEEL
     lore:
     - "Toggles town fires on or off."
   /town toggle mobs:
     title: "Toggle Mobs"
+    permission: "towny.command.town.toggle.mobs"
     material: SKULL_ITEM
     lore:
     - "Toggles town mobs on or off."
   /town toggle pvp:
     title: "Toggle PvP"
+    permission: "towny.command.town.toggle.pvp"
     material: IRON_SWORD
     enchant_glow: true
     lore:
     - "Toggles town pvp on or off."
   /town toggle public:
     title: "Toggle Public Spawning"
+    permission: "towny.command.town.toggle.public"
     material: ENDER_PEARL
     lore:
     - "Toggles public town spawning on or off."
   /town toggle taxpercent:
     title: "Toggle Tax Percentage"
+    permission: "towny.command.town.toggle.taxpercent"
     material: DIAMOND
     lore:
     - "Toggles town tax between flat rate or percentage."
   /town toggle open:
     title: "Toggle Open Status"
+    permission: "towny.command.town.toggle.open"
     material: WOOD_DOOR
     lore:
     - "Toggles the town's join status between open and closed."
   /town toggle jail:
     title: "Toggle Jail"
+    permission: "towny.command.town.toggle.jail"
     material: IRON_FENCE
     lore:
     - "Toggles a resident's jail status."
@@ -409,21 +470,25 @@ commands:
 # Nation Menu Commands
   /nation list:
     title: "List Nations"
+    permission: "towny.command.nation.list"
     material: PAPER
     lore:
     - "Lists all nations on the server."
   /nation online:
     title: "Display Online Nation Members"
+    permission: "towny.command.nation.online"
     material: BOOK
     lore:
     - "Lists all members of the town who are currently online."
   /nation leave:
     title: "Leave Nation"
+    permission: "towny.command.nation.leave"
     material: REDSTONE
     lore:
     - "Removes the town from the nation."
   /nation withdraw:
     title: "Nation Withdraw"
+    permission: "towny.command.nation.withdraw"
     material: GOLD_INGOT
     lore:
     - "Withdraw money from the nation bank."
@@ -431,6 +496,7 @@ commands:
       <AMOUNT>: "How much do you want to withdraw from the nation bank?"
   /nation deposit:
     title: "Nation Deposit"
+    permission: "towny.command.nation.deposit"
     material: GOLD_INGOT
     lore:
     - "Deposit money into the nation bank."
@@ -438,27 +504,32 @@ commands:
       <AMOUNT>: "How much do you want to deposit into the nation bank?"
   /nation new:
      title: "New Nation"
+     permission: "towny.command.nation.new"
      material: NAME_TAG
      lore:
      - "Creates a new town with the specified name."
   /nation add:
     title: "Invite Town"
+    permission: "towny.command.nation.add"
     material: WOOD_DOOR
     lore:
     - "Invites a town to join the nation."
   /nation kick:
     title: "Kick Town"
+    permission: "towny.command.nation.kick"
     material: SHIELD
     lore:
     - "Kicks a town from the nation."
   /nation delete:
     title: "Delete Nation"
+    permission: "towny.command.nation.delete"
     material: REDSTONE
     lore:
     - "Deletes your nation and removes all towns."
     - "WARNING: POTENTIAL TO CAUSE DAMAGE!"
   /nation ally add:
     title: "Add Ally"
+    permission: "towny.command.nation.ally"
     material: RED_ROSE
     lore:
     - "Forms an alliance with another nation."
@@ -466,6 +537,7 @@ commands:
       <NATION>: "&aWhich nation would you like to ally with?"
   /nation ally remove:
     title: "Remove Ally"
+    permission: "towny.command.nation.ally"
     material: RED_ROSE
     lore:
     - "Cancels an alliance with another nation."
@@ -473,6 +545,7 @@ commands:
       <NATION>: "&aWhich nation would you like to cancel alliance with?"
   /nation enemy add:
     title: "Add Enemy"
+    permission: "towny.command.nation.enemy"
     material: ARROW
     lore:
     - "Add another nation to your enemies list."
@@ -480,6 +553,7 @@ commands:
       <NATION>: "&aWhich nation would you like to add as an enemy?"
   /nation enemy remove:
     title: "Remove Enemy"
+    permission: "towny.command.nation.enemy"
     material: ARROW
     lore:
     - "Add another nation to your enemies list."
@@ -487,6 +561,7 @@ commands:
       <NATION>: "&aWhich nation would you like to add as an enemy?"
   /nation rank:
     title: "Add/Remove Nation Rank"
+    permission: "towny.command.nation.rank.*"
     material: BOOK
     lore:
     - "Add or remove a resident's nation rank."
@@ -496,6 +571,7 @@ commands:
       <RANK>: "&aWhat rank do you want to add/remove?"
   /nation toggle peaceful:
     title: "Toggle Nation Peace"
+    permission: "towny.command.nation.toggle.neutral"
     material: YELLOW_FLOWER
     lore:
     - "Sets whether your nation will pay daily be peaceful."
@@ -503,6 +579,7 @@ commands:
     - "attacked during Towny war."
   /nation set king:
     title: "Set Nation King"
+    permission: "towny.command.nation.set.king"
     material: GOLD_HELMET
     lore:
     - "Sets the nation's king."
@@ -510,6 +587,7 @@ commands:
       <RESIDENT>: "&aWho would you like to set as the king?"
   /nation set capital:
     title: "Set Nation Capital"
+    permission: "towny.command.nation.set.capitol"
     material: WOOD_DOOR
     lore:
     -  "Sets the nation's capital."
@@ -517,6 +595,7 @@ commands:
       <TOWN>: "&aWhat town would you like to set as the capital?"
   /nation set taxes:
     title: "Set Nation Taxes"
+    permission: "towny.command.nation.set.taxes"
     material: DIAMOND
     lore:
     - "Sets the tax for towns within the nation."
@@ -524,6 +603,7 @@ commands:
       <AMOUNT>: "&aHow much would you like to tax towns in the nation?"
   /nation set name:
     title: "Set Nation Name"
+    permission: "towny.command.nation.set.name"
     material: NAME_TAG
     lore:
     - "Sets the name of the nation."
@@ -531,6 +611,7 @@ commands:
       <NAME>: "&aWhat would you like to set the name of the nation to?"
   /nation set title:
     title: "Set Resident Title"
+    permission: "towny.command.nation.set.title"
     material: NAME_TAG
     lore:
     - "Sets a resident's title in the nation."
@@ -539,6 +620,7 @@ commands:
       <TITLE>: "&aWhat would you like to set their title to?"
   /nation set surname:
     title: "Set Resident Surname"
+    permission: "towny.command.nation.set.surname"
     material: NAME_TAG
     lore:
     - "Sets a resident's surname in the nation."
@@ -547,6 +629,7 @@ commands:
       <SURNAME>: "&aWhat would you like to set their surname to?"
   /nation set tag:
     title: "Set Nation Tag"
+    permission: "towny.command.nation.set.tag"
     material: NAME_TAG
     lore:
     - "Changes your town's 4 character tag."

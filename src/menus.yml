@@ -200,6 +200,7 @@ menus:
   Towny_War:
     title: "Towny War Menu"
     size: 18
+    permission: "towny.command.towny.war"
     material: IRON_SWORD
     enchant_glow: true
     lore: {}
