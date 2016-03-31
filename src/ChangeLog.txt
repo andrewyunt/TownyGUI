@@ -16,3 +16,8 @@ v0.13:
 	Added error message if a material does not exist for a menu or command
 	Added option "enchant_glow" to the configuration to make items glow
 	Changed the out of bounds error message
+v0.14:
+	Added ChangeLog.txt
+	Added permissions check for icons
+	Add permissions to default configuration files
+	Change toggle commands to use menus instead of chat prompts in default configuration
