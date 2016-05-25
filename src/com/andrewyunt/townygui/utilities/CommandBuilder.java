@@ -1,40 +1,33 @@
 package com.andrewyunt.townygui.utilities;
 
+import com.andrewyunt.townygui.TownyGUI;
+import com.palmergames.bukkit.towny.TownyMessaging;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.conversations.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.conversations.Conversable;
-import org.bukkit.conversations.ConversationAbandonedEvent;
-import org.bukkit.conversations.ConversationAbandonedListener;
-import org.bukkit.conversations.ConversationContext;
-import org.bukkit.conversations.ConversationFactory;
-import org.bukkit.conversations.Prompt;
-import org.bukkit.conversations.StringPrompt;
-
-import com.andrewyunt.townygui.TownyGUI;
-import com.palmergames.bukkit.towny.TownyMessaging;
-
 public class CommandBuilder implements ConversationAbandonedListener {
 	
-	private List<String> argumentList;
+	private final List<String> argumentList;
 	
-	private ConversationFactory conversationFactory;
+	private final ConversationFactory conversationFactory;
 
-	int conversationLength;
+	private int conversationLength;
 	
-	String newCommand;
-	String baseCommand;
+	private String newCommand;
+	private final String baseCommand;
 	
 	public CommandBuilder(Set<String> argumentSet, String inputCommand) {
 		
 		newCommand = inputCommand;
 		baseCommand = inputCommand;
 		
-		argumentList = new ArrayList<String>(argumentSet);
+		argumentList = new ArrayList<>(argumentSet);
 		
 		conversationLength = argumentList.size();
 		

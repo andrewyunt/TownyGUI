@@ -15,16 +15,15 @@ import java.util.Set;
 
 public class Menu {
 	
-	private Set<String> icons;
+	private final Set<String> icons;
 	
-	private FileConfiguration commandConfig;
-	private FileConfiguration menuConfig;
-	private FileConfiguration config;
+	private final FileConfiguration commandConfig;
+	private final FileConfiguration menuConfig;
+
+	private final Utils utils;
 	
-	private Utils utils;
-	
-	private String title;
-	private int size;
+	private final String title;
+	private final int size;
 	
 	public Menu(Player player, String menu) {
 		
@@ -51,8 +50,9 @@ public class Menu {
 			
 			String type;
 			
-			String permission = null;
-			
+			String permission;
+
+			FileConfiguration config;
 			if(icon.startsWith("/")) {
 				config = commandConfig;
 				type = "commands";
@@ -74,7 +74,8 @@ public class Menu {
 				TownyMessaging.sendErrorMsg(player, e.getMessage());
 				TownyMessaging.sendErrorMsg(player, "Please report this error to your server administrator.");
 			}
-			
+
+			assert is != null;
 			ItemMeta meta = is.getItemMeta();
 			
 			meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', config.getString(type + "." + icon + ".title")));

@@ -1,8 +1,9 @@
 package com.andrewyunt.townygui.listeners;
 
-import java.util.List;
-import java.util.Set;
-
+import com.andrewyunt.townygui.Menu;
+import com.andrewyunt.townygui.TownyGUI;
+import com.andrewyunt.townygui.utilities.CommandBuilder;
+import com.gmail.filoghost.hiddenstring.HiddenStringUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,15 +12,11 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.andrewyunt.townygui.Menu;
-import com.andrewyunt.townygui.TownyGUI;
-import com.andrewyunt.townygui.utilities.CommandBuilder;
-import com.gmail.filoghost.hiddenstring.HiddenStringUtils;
+import java.util.List;
+import java.util.Set;
 
 public class InventoryListener implements Listener {
-	
-	private Set<String> arguments;
-	
+
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent event) {
 		
@@ -42,17 +39,15 @@ public class InventoryListener implements Listener {
 		String action = HiddenStringUtils.extractHiddenString(lore.get(0));
 		
 		boolean command;
-		
-		if(action.startsWith("/"))
-			command = true;
-		else
-			command = false;
+
+		command = action.startsWith("/");
 		
 		if(!command)
 			new Menu(player, action);
 		else {
 			player.closeInventory();
-			
+
+			Set<String> arguments;
 			try {
 				arguments = TownyGUI.plugin.commandConfig.getConfig().getConfigurationSection("commands." + action + ".arguments").getKeys(false);
 			} catch(NullPointerException e) {

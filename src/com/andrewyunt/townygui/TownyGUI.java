@@ -27,8 +27,8 @@ public class TownyGUI extends JavaPlugin {
 	
 	private PluginManager pm;
 	
-	public Server server = getServer();
-	public Logger logger = server.getLogger();
+	public final Server server = getServer();
+	private final Logger logger = server.getLogger();
 	
 	@Override
 	public void onEnable() {
@@ -75,7 +75,7 @@ public class TownyGUI extends JavaPlugin {
 		return true;
 	}
 	
-	public boolean checkDependencies() {
+	private boolean checkDependencies() {
 		
 		if(pm.getPlugin("Towny") == null)
 			return false;
@@ -85,7 +85,7 @@ public class TownyGUI extends JavaPlugin {
 		return true;
 	}
 	
-	public void reload() {
+	private void reload() {
 		
 		menuConfig.reloadConfig();
 		commandConfig.reloadConfig();
