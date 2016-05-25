@@ -11,6 +11,7 @@ menus:
     title: "Main Menu"
     size: 9
     material: IRON_FENCE
+    data: 0
     lore:
     - "&cReturn to the main menu."
     icons:
@@ -28,6 +29,7 @@ menus:
     title: "Towny Menu"
     size: 27
     material: GLASS
+    data: 0
     lore:
     - "Towny's general functions are located here. "
     icons:
@@ -51,6 +53,7 @@ menus:
     title: "Plot Menu"
     size: 36
     material: SIGN
+    data: 0
     lore:
     - "Manage the plot you are currently standing on."
     icons:
@@ -80,6 +83,7 @@ menus:
     title: "Resident Menu"
     size: 27
     material: WOOD_DOOR
+    data: 0
     lore:
     - "Manage your Towny character."
     icons:
@@ -107,6 +111,7 @@ menus:
     title: "Town Menu"
     size: 54
     material: BOOKSHELF
+    data: 0
     lore:
     - "Manage your town."
     icons:
@@ -158,6 +163,7 @@ menus:
     title: "Nation Menu"
     size: 45
     material: ARROW
+    data: 0
     lore:
     - "Manage your nation."
     icons:
@@ -202,6 +208,7 @@ menus:
     size: 18
     permission: "towny.command.towny.war"
     material: IRON_SWORD
+    data: 0
     enchant_glow: true
     lore: {}
     icons:
@@ -217,6 +224,7 @@ menus:
     title: "Town Set Menu"
     size: 45
     material: WOOD_BUTTON
+    data: 0
     lore: {}
     icons:
       /town set board:
@@ -255,6 +263,7 @@ menus:
     title: "Town Toggle Menu"
     size: 27
     material: LEVER
+    data: 0
     lore: {}
     icons:
       /town toggle explosion:
@@ -279,6 +288,7 @@ menus:
     title: "Nation Set Menu"
     size: 27
     material: WOOD_BUTTON
+    data: 0
     lore: {}
     icons:
       /nation set king:
@@ -301,6 +311,7 @@ menus:
     title: "Plot Toggle Menu"
     size: 18
     material: LEVER
+    data: 0
     lore: {}
     icons:
       /plot toggle explosions:
@@ -317,6 +328,7 @@ menus:
     title: "Resident Toggle Menu"
     size: 18
     material: LEVER
+    data: 0
     lore: {}
     icons:
       /resident toggle map:

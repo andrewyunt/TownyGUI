@@ -1,7 +1,7 @@
 package com.andrewyunt.townygui;
 
-import java.util.Set;
-
+import com.andrewyunt.townygui.utilities.Utils;
+import com.palmergames.bukkit.towny.TownyMessaging;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -11,8 +11,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.andrewyunt.townygui.utilities.Utils;
-import com.palmergames.bukkit.towny.TownyMessaging;
+import java.util.Set;
 
 public class Menu {
 	
@@ -69,7 +68,7 @@ public class Menu {
 					continue;
 			
 			try {
-				is = new ItemStack(Material.getMaterial(config.getString(type + "." + icon + ".material")));
+				is = new ItemStack(Material.getMaterial(config.getString(type + "." + icon + ".material")), 1, (short) config.getInt(type + "." + icon + ".data"));
 			} catch(NullPointerException e) {
 				TownyMessaging.sendErrorMsg(player, "The material for the icon " + icon + " is invalid. OR there is an error in the configuration.");
 				TownyMessaging.sendErrorMsg(player, e.getMessage());
