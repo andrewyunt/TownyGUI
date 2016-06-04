@@ -57,7 +57,7 @@ public class CommandBuilder implements ConversationAbandonedListener {
 		@Override
 		public Prompt acceptInput(ConversationContext context, String input) {
 			
-			conversationLength = conversationLength - 1;
+			conversationLength--;
 			
 			newCommand = newCommand + " " + input;
 			
