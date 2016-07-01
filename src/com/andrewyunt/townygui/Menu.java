@@ -36,8 +36,6 @@ public class Menu {
 		
 		title = ChatColor.translateAlternateColorCodes('&', menuConfig.getString("menus." + menu + ".title"));
 		size = TownyGUI.plugin.utils.getInventorySize(menuConfig.getInt("menus." + menu + ".size"));
-		
-		openMenu(player, menu);
 	}
 	
 	private void openMenu(Player player, String menu) {
