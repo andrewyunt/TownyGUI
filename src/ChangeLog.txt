@@ -21,3 +21,6 @@ v0.14:
 	Added permissions check for icons
 	Add permissions to default configuration files
 	Change toggle commands to use menus instead of chat prompts in default configuration
+v0.15:
+	Added support for item data values
+	Updated to Minecraft version 1.10
