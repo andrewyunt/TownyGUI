@@ -24,3 +24,6 @@ v0.14:
 v0.15:
 	Added support for item data values
 	Updated to Minecraft version 1.10
+v0.16:
+	Fixed bug causing GUI not to open at all
+	Removed NMS code from addGlow(ItemStack is) method
