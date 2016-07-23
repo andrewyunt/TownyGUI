@@ -7,7 +7,10 @@ import net.minecraft.server.v1_10_R1.NBTTagList;
 
 import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,16 +49,13 @@ public class Utils {
 	
 	public ItemStack addGlow(ItemStack is) {
 		
-		net.minecraft.server.v1_10_R1.ItemStack nmsItem = CraftItemStack.asNMSCopy(is);
+		ItemMeta meta = is.getItemMeta();
 		
-		NBTTagCompound nbt = nmsItem.getTag() == null ? new NBTTagCompound() : nmsItem.getTag();
+		meta.addEnchant(Enchantment.FIRE_ASPECT, 1, true);
+		meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		
-		NBTTagList ench = new NBTTagList();
+		is.setItemMeta(meta);
 		
-		nbt.set("ench", ench);
-		
-		nmsItem.setTag(nbt);
-		
-		return CraftItemStack.asBukkitCopy(nmsItem);
+		return is;
 	}
 }
