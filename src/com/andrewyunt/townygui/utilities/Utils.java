@@ -2,11 +2,7 @@ package com.andrewyunt.townygui.utilities;
 
 import com.gmail.filoghost.hiddenstring.HiddenStringUtils;
 
-import net.minecraft.server.v1_10_R1.NBTTagCompound;
-import net.minecraft.server.v1_10_R1.NBTTagList;
-
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
