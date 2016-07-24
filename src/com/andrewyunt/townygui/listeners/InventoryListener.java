@@ -31,6 +31,10 @@ public class InventoryListener implements Listener {
 			return;
 		
 		ItemMeta meta = item.getItemMeta();
+		
+		if (!meta.hasLore())
+			return;
+		
 		List<String> lore = meta.getLore();
 		
 		if(!HiddenStringUtils.hasHiddenString(lore.get(0)))
