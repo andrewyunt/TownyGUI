@@ -16,18 +16,18 @@ public class Utils {
 	
 	public int getInventorySize(int max) {
 		
-	    if(max <= 0)
-	    	return 9;
-	    
-	    int quotient = (int)Math.ceil(max / 9.0);
-	    
-	    return quotient > 5 ? 54: quotient * 9;
+		if(max <= 0)
+			return 9;
+		
+		int quotient = (int)Math.ceil(max / 9.0);
+		
+		return (int) Math.ceil(max / 9.0) > 5 ? 54: quotient * 9;
 	}
 	
 	public List<String> colorizeStringList(List<String> input) {
 		
 		List<String> colorized = input.stream().map(line -> ChatColor.translateAlternateColorCodes('&', line)).collect(Collectors.toList());
-
+		
 		return colorized;
 	}
 	
@@ -36,10 +36,10 @@ public class Utils {
 		List<String> outputLore = new ArrayList<>();
 		
 		outputLore.add(HiddenStringUtils.encodeString(hiddenString));
-
+		
 		for(String line : inputLore)
 			outputLore.add(line);
-
+		
 		return outputLore;
 	}
 	

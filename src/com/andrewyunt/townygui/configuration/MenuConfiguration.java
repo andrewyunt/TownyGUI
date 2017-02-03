@@ -19,52 +19,51 @@ public class MenuConfiguration {
 	
 	public void reloadConfig() {
 		
-	    if(configFile == null)
-	    	configFile = new File(TownyGUI.plugin.getDataFolder(), "menus.yml");
-	    
-	    config = YamlConfiguration.loadConfiguration(configFile);
-
-	    // Look for defaults in the jar
-	    Reader defConfigStream = null;
-	    
+		if (configFile == null)
+			configFile = new File(TownyGUI.getInstance().getDataFolder(), "menus.yml");
+		
+		config = YamlConfiguration.loadConfiguration(configFile);
+		
+		Reader defConfigStream = null;
+		
 		try {
-			defConfigStream = new InputStreamReader(TownyGUI.plugin.getResource("menus.yml"), "UTF8");
+			defConfigStream = new InputStreamReader(TownyGUI.getInstance().getResource("menus.yml"), "UTF8");
 		} catch(UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		
-	    if(defConfigStream != null) {
-	        YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
-	        config.setDefaults(defConfig);
-	    }
+		if (defConfigStream != null) {
+			YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
+			config.setDefaults(defConfig);
+		}
 	}
 	
 	public FileConfiguration getConfig() {
-	    
-		if(config == null)
-	        reloadConfig();
-	    
-	    return config;
+		
+		if (config == null)
+			reloadConfig();
+		
+		return config;
 	}
 	
 	public void saveConfig() {
 		
-	    if(config == null || configFile == null)
-	        return;
-	    
-	    try {
-	        getConfig().save(configFile);
-	    } catch(IOException ex) {
-	        TownyGUI.plugin.getLogger().log(Level.SEVERE, "Could not save config to " + configFile, ex);
-	    }
+		if (config == null || configFile == null)
+			return;
+		
+		try {
+			getConfig().save(configFile);
+		} catch(IOException ex) {
+			TownyGUI.getInstance().getLogger().log(Level.SEVERE, "Could not save config to " + configFile, ex);
+		}
 	}
 	
 	public void saveDefaultConfig() {
 		
-	    if(configFile == null)
-	        configFile = new File(TownyGUI.plugin.getDataFolder(), "menus.yml");
-	    
-	    if(!configFile.exists())
-	         TownyGUI.plugin.saveResource("menus.yml", false);
+		if (configFile == null)
+			configFile = new File(TownyGUI.getInstance().getDataFolder(), "menus.yml");
+		
+		if (!configFile.exists())
+			TownyGUI.getInstance().saveResource("menus.yml", false);
 	}
 }

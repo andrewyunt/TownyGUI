@@ -291,7 +291,7 @@ commands:
   /town kick:
     title: "Kick Resident"
     permission: "towny.command.town.kick"
-    material: SHIELD
+    material: STICK
     data: 0
     lore:
     - "Kicks a resident from the town."
@@ -312,8 +312,8 @@ commands:
   /town claim:
     title: "Town Claim"
     permission: "towny.command.town.claim.town"
-    material: BANNER
-    data: 0
+    material: WOOL
+    data: 14
     lore:
     - "Claims the current town block you are standing on."
   /town unclaim:
@@ -619,7 +619,7 @@ commands:
   /nation kick:
     title: "Kick Town"
     permission: "towny.command.nation.kick"
-    material: SHIELD
+    material: STICK
     data: 0
     lore:
     - "Kicks a town from the nation."

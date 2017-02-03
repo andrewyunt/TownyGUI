@@ -13,29 +13,25 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Set;
 
-public class Menu {
+public class IconMenu {
 	
+	private final FileConfiguration commandConfig, menuConfig;
 	private final Set<String> icons;
-	
-	private final FileConfiguration commandConfig;
-	private final FileConfiguration menuConfig;
-
 	private final Utils utils;
-	
 	private final String title;
 	private final int size;
 	
-	public Menu(Player player, String menu) {
+	public IconMenu(Player player, String menu) {
 		
-		commandConfig = TownyGUI.plugin.commandConfig.getConfig();
-		menuConfig = TownyGUI.plugin.menuConfig.getConfig();
-		
-		utils = TownyGUI.plugin.utils;
+		commandConfig = TownyGUI.getInstance().commandConfig.getConfig();
+		menuConfig = TownyGUI.getInstance().menuConfig.getConfig();
 		
 		icons = menuConfig.getConfigurationSection("menus." + menu + ".icons").getKeys(false); 
 		
+		utils = TownyGUI.getInstance().utils;
+		
 		title = ChatColor.translateAlternateColorCodes('&', menuConfig.getString("menus." + menu + ".title"));
-		size = TownyGUI.plugin.utils.getInventorySize(menuConfig.getInt("menus." + menu + ".size"));
+		size = TownyGUI.getInstance().utils.getInventorySize(menuConfig.getInt("menus." + menu + ".size"));
 		
 		openMenu(player, menu);
 	}
@@ -44,16 +40,12 @@ public class Menu {
 		
 		Inventory inv = Bukkit.createInventory(null, size, title);
 		
-		for(String icon : icons) {
-			
+		for (String icon : icons) {
 			ItemStack is = null;
-			
-			String type;
-			
-			String permission;
-
+			String type, permission;
 			FileConfiguration config;
-			if(icon.startsWith("/")) {
+			
+			if (icon.startsWith("/")) {
 				config = commandConfig;
 				type = "commands";
 			} else {
@@ -63,7 +55,7 @@ public class Menu {
 			
 			permission = config.getString(type + "." + icon + ".permission");
 			
-			if(!(permission == null))
+			if (!(permission == null))
 				if(!player.hasPermission(permission))
 					continue;
 			
@@ -74,8 +66,9 @@ public class Menu {
 				TownyMessaging.sendErrorMsg(player, e.getMessage());
 				TownyMessaging.sendErrorMsg(player, "Please report this error to your server administrator.");
 			}
-
+			
 			assert is != null;
+			
 			ItemMeta meta = is.getItemMeta();
 			
 			meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', config.getString(type + "." + icon + ".title")));
@@ -83,8 +76,8 @@ public class Menu {
 			
 			is.setItemMeta(meta);
 			
-			if(config.getBoolean(type + "." + icon + ".enchant_glow"))
-				is = TownyGUI.plugin.utils.addGlow(is);
+			if (config.getBoolean(type + "." + icon + ".enchant_glow"))
+				is = TownyGUI.getInstance().utils.addGlow(is);
 			
 			try {
 				inv.setItem(menuConfig.getInt("menus." + menu + ".icons." + icon + ".slot") - 1, is);

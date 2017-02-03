@@ -4,9 +4,8 @@ version: 0.16
 author: Andrew Yunt
 website: http://code.google.com/a/eclipselabs.org/p/towny/
 description: >
-    TownyGUI plugin which hooks into Towny.
-
-softdepend: [Towny]
+    TownyGUI plugin for Bukkit / Spigot servers.
+depend: [Towny]
 
 ############################################################
 # +------------------------------------------------------+ #

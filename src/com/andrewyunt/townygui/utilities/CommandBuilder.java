@@ -14,13 +14,11 @@ import java.util.Set;
 public class CommandBuilder implements ConversationAbandonedListener {
 	
 	private final List<String> argumentList;
-	
 	private final ConversationFactory conversationFactory;
-
-	private int conversationLength;
-	
-	private String newCommand;
 	private final String baseCommand;
+	
+	private int conversationLength;
+	private String newCommand;
 	
 	public CommandBuilder(Set<String> argumentSet, String inputCommand) {
 		
@@ -31,29 +29,29 @@ public class CommandBuilder implements ConversationAbandonedListener {
 		
 		conversationLength = argumentList.size();
 		
-        conversationFactory = new ConversationFactory(TownyGUI.plugin)
-                .withModality(true)
-                .withFirstPrompt(new CommandPrompt())
-                .withEscapeSequence("quit")
-                .withTimeout(30)
-                .thatExcludesNonPlayersWithMessage("Unable to access from the console.")
-                .addConversationAbandonedListener(this);
+		conversationFactory = new ConversationFactory(TownyGUI.getInstance())
+				.withModality(true)
+				.withFirstPrompt(new CommandPrompt())
+				.withEscapeSequence("quit")
+				.withTimeout(30)
+				.thatExcludesNonPlayersWithMessage("Unable to access from the console.")
+				.addConversationAbandonedListener(this);
 	}
 	
 	public void beginConversation(CommandSender sender) {
 		
 		conversationFactory.buildConversation((Conversable) sender).begin();
 	}
-    
-    private class CommandPrompt extends StringPrompt {
-    	
-        public String getPromptText(ConversationContext context) {
-        	
-        	String prompt = TownyGUI.plugin.commandConfig.getConfig().getString("commands." + baseCommand + ".arguments." + argumentList.get(conversationLength - 1));
-        	
-        	return ChatColor.translateAlternateColorCodes('&', prompt);
-        }
-
+	
+	private class CommandPrompt extends StringPrompt {
+		
+		public String getPromptText(ConversationContext context) {
+			
+			String prompt = TownyGUI.getInstance().commandConfig.getConfig().getString("commands."
+					+ baseCommand + ".arguments." + argumentList.get(conversationLength - 1));
+			return ChatColor.translateAlternateColorCodes('&', prompt);
+		}
+		
 		@Override
 		public Prompt acceptInput(ConversationContext context, String input) {
 			
@@ -61,21 +59,21 @@ public class CommandBuilder implements ConversationAbandonedListener {
 			
 			newCommand = newCommand + " " + input;
 			
-			if(conversationLength > 0)
+			if (conversationLength > 0)
 				return new CommandPrompt();
 			
 			return Prompt.END_OF_CONVERSATION;
 		}
-    }
-
+	}
+	
 	@Override
 	public void conversationAbandoned(ConversationAbandonedEvent event) {
-    
+		
 		Conversable who = event.getContext().getForWhom();
 		
-		if(!event.gracefulExit())
+		if (!event.gracefulExit()) {
 			TownyMessaging.sendErrorMsg((CommandSender) who, "Command execution stopped by " + event.getCanceller().getClass().getName());
-		else {
+		} else {
 			newCommand = newCommand.replace("/", "");
 			
 			Bukkit.getServer().dispatchCommand((CommandSender) who, newCommand); 

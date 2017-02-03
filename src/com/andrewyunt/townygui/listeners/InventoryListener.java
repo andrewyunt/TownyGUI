@@ -1,6 +1,6 @@
 package com.andrewyunt.townygui.listeners;
 
-import com.andrewyunt.townygui.Menu;
+import com.andrewyunt.townygui.IconMenu;
 import com.andrewyunt.townygui.TownyGUI;
 import com.andrewyunt.townygui.utilities.CommandBuilder;
 import com.gmail.filoghost.hiddenstring.HiddenStringUtils;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 public class InventoryListener implements Listener {
-
+	
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent event) {
 		
@@ -24,10 +24,10 @@ public class InventoryListener implements Listener {
 		
 		Player player = (Player) event.getWhoClicked();
 		
-		if(!(event.getInventory().getHolder() == null))
+		if (event.getInventory().getHolder() != null)
 			return;
 		
-		if(item == null || !item.hasItemMeta())
+		if (item == null || !item.hasItemMeta())
 			return;
 		
 		ItemMeta meta = item.getItemMeta();
@@ -37,26 +37,26 @@ public class InventoryListener implements Listener {
 		
 		List<String> lore = meta.getLore();
 		
-		if(!HiddenStringUtils.hasHiddenString(lore.get(0)))
+		if (!HiddenStringUtils.hasHiddenString(lore.get(0)))
 			return;
 		
 		String action = HiddenStringUtils.extractHiddenString(lore.get(0));
-		
 		boolean command;
-
+		
 		command = action.startsWith("/");
 		
-		if(!command)
-			new Menu(player, action);
-		else {
+		if (!command) {
+			new IconMenu(player, action);
+		} else {
 			player.closeInventory();
-
+			
 			Set<String> arguments;
 			try {
-				arguments = TownyGUI.plugin.commandConfig.getConfig().getConfigurationSection("commands." + action + ".arguments").getKeys(false);
-			} catch(NullPointerException e) {
+				arguments = TownyGUI.getInstance().commandConfig.getConfig().getConfigurationSection(
+						"commands." + action + ".arguments").getKeys(false);
+			} catch (NullPointerException e) {
 				action = action.replace("/", "");
-				TownyGUI.plugin.server.dispatchCommand(player, action);
+				TownyGUI.getInstance().server.dispatchCommand(player, action);
 				event.setCancelled(true);
 				return;
 			}
