@@ -2,9 +2,9 @@ package com.andrewyunt.townygui.utilities;
 
 import com.gmail.filoghost.hiddenstring.HiddenStringUtils;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class Utils {
 	
-	public int getInventorySize(int max) {
+	public static int getInventorySize(int max) {
 		
 		if(max <= 0)
 			return 9;
@@ -24,14 +24,14 @@ public class Utils {
 		return (int) Math.ceil(max / 9.0) > 5 ? 54: quotient * 9;
 	}
 	
-	public List<String> colorizeStringList(List<String> input) {
+	public static List<String> colorizeStringList(List<String> input) {
 		
 		List<String> colorized = input.stream().map(line -> ChatColor.translateAlternateColorCodes('&', line)).collect(Collectors.toList());
 		
 		return colorized;
 	}
 	
-	public List<String> hideStringInLore(List<String> inputLore, String hiddenString) {
+	public static List<String> hideStringInLore(List<String> inputLore, String hiddenString) {
 		
 		List<String> outputLore = new ArrayList<>();
 		
@@ -43,12 +43,18 @@ public class Utils {
 		return outputLore;
 	}
 	
-	public ItemStack addGlow(ItemStack is) {
+	public static ItemStack addGlow(ItemStack is) {
+		
+		String version = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3]
+				.replace("v", "").replace("_", "").replace("R", "");
+		
+		if (Integer.valueOf(version) < 181)
+			return is;
 		
 		ItemMeta meta = is.getItemMeta();
 		
 		meta.addEnchant(Enchantment.FIRE_ASPECT, 1, true);
-		meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		meta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
 		
 		is.setItemMeta(meta);
 		

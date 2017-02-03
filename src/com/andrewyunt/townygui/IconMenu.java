@@ -17,7 +17,6 @@ public class IconMenu {
 	
 	private final FileConfiguration commandConfig, menuConfig;
 	private final Set<String> icons;
-	private final Utils utils;
 	private final String title;
 	private final int size;
 	
@@ -28,10 +27,8 @@ public class IconMenu {
 		
 		icons = menuConfig.getConfigurationSection("menus." + menu + ".icons").getKeys(false); 
 		
-		utils = TownyGUI.getInstance().utils;
-		
 		title = ChatColor.translateAlternateColorCodes('&', menuConfig.getString("menus." + menu + ".title"));
-		size = TownyGUI.getInstance().utils.getInventorySize(menuConfig.getInt("menus." + menu + ".size"));
+		size = Utils.getInventorySize(menuConfig.getInt("menus." + menu + ".size"));
 		
 		openMenu(player, menu);
 	}
@@ -72,12 +69,12 @@ public class IconMenu {
 			ItemMeta meta = is.getItemMeta();
 			
 			meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', config.getString(type + "." + icon + ".title")));
-			meta.setLore(utils.hideStringInLore(utils.colorizeStringList(config.getStringList(type + "." + icon + ".lore")), icon));
+			meta.setLore(Utils.hideStringInLore(Utils.colorizeStringList(config.getStringList(type + "." + icon + ".lore")), icon));
 			
 			is.setItemMeta(meta);
 			
 			if (config.getBoolean(type + "." + icon + ".enchant_glow"))
-				is = TownyGUI.getInstance().utils.addGlow(is);
+				is = Utils.addGlow(is);
 			
 			try {
 				inv.setItem(menuConfig.getInt("menus." + menu + ".icons." + icon + ".slot") - 1, is);
