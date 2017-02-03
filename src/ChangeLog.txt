@@ -27,3 +27,6 @@ v0.15:
 v0.16:
 	Fixed bug causing GUI not to open at all
 	Removed NMS code from addGlow(ItemStack is) method
+v0.17:
+	Add support for Minecraft versions 1.7.9 or higher
+	Major code cleanup
