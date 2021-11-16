@@ -69,8 +69,11 @@ public class IconMenu {
 			ItemMeta meta = is.getItemMeta();
 			
 			meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', config.getString(type + "." + icon + ".title")));
+			if(TownyGUI.debug)
+				System.out.println("ICON String:" + icon);
 			meta.setLore(Utils.hideStringInLore(Utils.colorizeStringList(config.getStringList(type + "." + icon + ".lore")), icon));
-			
+			if(TownyGUI.debug)
+				System.out.println("ICON Meta:" + meta.getLore()+ "  "+meta.getLore().get(0));
 			is.setItemMeta(meta);
 			
 			if (config.getBoolean(type + "." + icon + ".enchant_glow"))

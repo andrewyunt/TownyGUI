@@ -19,7 +19,7 @@ public class InventoryListener implements Listener {
 	
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent event) {
-		
+
 		ItemStack item = event.getCurrentItem();
 		
 		Player player = (Player) event.getWhoClicked();
@@ -27,20 +27,32 @@ public class InventoryListener implements Listener {
 		if (event.getInventory().getHolder() != null)
 			return;
 		
-		if (item == null || !item.hasItemMeta())
+		if (item == null ){
 			return;
+		}
+		if (!item.hasItemMeta()){
+			System.out.println("No meta");
+			return;
+		}
 		
 		ItemMeta meta = item.getItemMeta();
 		
-		if (!meta.hasLore())
+		if (!meta.hasLore()){
+			System.out.println("No Lore");
 			return;
+		}
 		
 		List<String> lore = meta.getLore();
-		
-		if (!HiddenStringUtils.hasHiddenString(lore.get(0)))
+		System.out.println(lore.get(0));
+		if (!HiddenStringUtils.hasHiddenString(lore.get(0))){
+			if(TownyGUI.debug)
+				System.out.println("No hidden string");
 			return;
+		}
 		
 		String action = HiddenStringUtils.extractHiddenString(lore.get(0));
+		if(TownyGUI.debug)
+			System.out.println("Action: " + action);
 		boolean command;
 		
 		command = action.startsWith("/");

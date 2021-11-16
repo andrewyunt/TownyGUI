@@ -1,16 +1,11 @@
 package com.andrewyunt.townygui.configuration;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
-import java.util.logging.Level;
-
+import com.andrewyunt.townygui.TownyGUI;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import com.andrewyunt.townygui.TownyGUI;
+import java.io.*;
+import java.util.logging.Level;
 
 public class CommandConfiguration {
 	
