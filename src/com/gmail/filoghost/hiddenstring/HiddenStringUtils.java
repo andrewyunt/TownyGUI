@@ -1,28 +1,28 @@
 package com.gmail.filoghost.hiddenstring;
 
-import java.nio.charset.Charset;
-
+import com.andrewyunt.townygui.TownyGUI;
 import org.bukkit.ChatColor;
+
+import java.nio.charset.StandardCharsets;
 
 public class HiddenStringUtils {
 
-	// String constants. TODO Change them to something unique to avoid conflict with other plugins!
-	private static final String SEQUENCE_HEADER = "" + ChatColor.RESET + ChatColor.UNDERLINE + ChatColor.RESET;
-	private static final String SEQUENCE_FOOTER = "" + ChatColor.RESET + ChatColor.ITALIC + ChatColor.RESET;
+	private static final String SEQUENCE_HEADER = ChatColor.MAGIC + "Eimiak1e";
+	private static final String SEQUENCE_FOOTER = "====";
 	
 	
 	public static String encodeString(String hiddenString) {
-		return quote(stringToColors(hiddenString));
+		return quote(hiddenString);
 	}
 	
 	public static boolean hasHiddenString(String input) {
 		if (input == null) return false;
 		
-		return input.indexOf(SEQUENCE_HEADER) > -1 && input.indexOf(SEQUENCE_FOOTER) > -1;
-	}	
+		return input.contains(SEQUENCE_HEADER) && input.contains(SEQUENCE_FOOTER);
+	}
 	
 	public static String extractHiddenString(String input) {
-		return colorsToString(extract(input));
+		return extract(input);
 	}
 	
 	
@@ -43,7 +43,14 @@ public class HiddenStringUtils {
 	 * Internal stuff.
 	 */
 	private static String quote(String input) {
-		if (input == null) return null;
+		if (input == null) {
+			if(TownyGUI.debug)
+				System.out.println("No input text");
+			return null;
+		} else {
+			if(TownyGUI.debug)
+				System.out.println("Input encode: " + input);
+		}
 		return SEQUENCE_HEADER + input + SEQUENCE_FOOTER;
 	}
 	
@@ -63,7 +70,7 @@ public class HiddenStringUtils {
 	private static String stringToColors(String normal) {
 		if (normal == null) return null;
 		
-		byte[] bytes = normal.getBytes(Charset.forName("UTF-8"));
+		byte[] bytes = normal.getBytes(StandardCharsets.UTF_8);
 		char[] chars = new char[bytes.length * 4];
 		
 		for (int i = 0; i < bytes.length; i++) {
@@ -93,7 +100,7 @@ public class HiddenStringUtils {
 			bytes[i / 2] = hexToByte(chars[i], chars[i + 1]);
 		}
 
-		return new String(bytes, Charset.forName("UTF-8"));
+		return new String(bytes, StandardCharsets.UTF_8);
 	}
 	
 	private static int hexToUnsignedInt(char c) {
