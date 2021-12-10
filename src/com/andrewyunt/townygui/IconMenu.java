@@ -57,7 +57,7 @@ public class IconMenu {
 					continue;
 			
 			try {
-				is = new ItemStack(Material.getMaterial(config.getString(type + "." + icon + ".material")), 1, (short) config.getInt(type + "." + icon + ".data"));
+				is = new ItemStack(Material.matchMaterial(config.getString(type + "." + icon + ".material")), 1, (short) config.getInt(type + "." + icon + ".data"));
 			} catch(NullPointerException e) {
 				TownyMessaging.sendErrorMsg(player, "The material for the icon " + icon + " is invalid. OR there is an error in the configuration.");
 				TownyMessaging.sendErrorMsg(player, e.getMessage());
@@ -73,11 +73,11 @@ public class IconMenu {
 				System.out.println("ICON String:" + icon);
 			meta.setLore(Utils.hideStringInLore(Utils.colorizeStringList(config.getStringList(type + "." + icon + ".lore")), icon));
 			if(TownyGUI.debug)
-				System.out.println("ICON Meta:" + meta.getLore()+ "  "+meta.getLore().get(0));
+				System.out.println("ICON Meta:" + meta.getLore()+ "  " + meta.getLore().get(0));
 			is.setItemMeta(meta);
 			
 			if (config.getBoolean(type + "." + icon + ".enchant_glow"))
-				is = Utils.addGlow(is);
+				Utils.addGlow(is);
 			
 			try {
 				inv.setItem(menuConfig.getInt("menus." + menu + ".icons." + icon + ".slot") - 1, is);

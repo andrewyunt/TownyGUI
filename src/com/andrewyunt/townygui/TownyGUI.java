@@ -41,9 +41,6 @@ public class TownyGUI extends JavaPlugin implements CommandExecutor {
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-//		if (!(sender instanceof Player))
-//			return false;
-//
 		if (cmd.getName().equalsIgnoreCase("tgui")) {
 			if (args.length == 0) {
 				if (!(sender instanceof Player)) {
